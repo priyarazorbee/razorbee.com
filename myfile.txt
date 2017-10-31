@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 hello shahid how are you
 what is ur name
+=======
+hello shahid how are you
+>>>>>>> 0a6e34be2c151c24c83e3f898e72b0709ac6a76b
