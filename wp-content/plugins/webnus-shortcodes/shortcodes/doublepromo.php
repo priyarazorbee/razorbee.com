@@ -1,7 +1,7 @@
 <?php
 // Picture Box
  function easyweb_webnus_doublepromo( $attributes, $content = null ) {
- 	
+
 	extract(shortcode_atts(array(
 	"title" => '',
 	"text" => '',
@@ -10,17 +10,17 @@
 	"img" =>'',
 	"img_alt" =>'',
 	"last" =>'true',
-	
+
 		), $attributes));
 
-	
+
 	if(is_numeric($img)){
-		
+
 		$img = wp_get_attachment_url( $img );
-		
+
 	}
-	
-	
+
+
 	$out = '<article class="dpromo col-md-6 ' . (( 'true' == $last)?'dpromo2 omega':'') . '">';
     $out .= '<div class="'.(( 'true' == $last )?'brdr-l1 pad-l40':'pad-r10').'">';
     $out .= '<h4><strong>' . $title . '</strong></h4>';

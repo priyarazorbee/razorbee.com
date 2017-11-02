@@ -39,8 +39,8 @@ define('DB_CHARSET', 'utf8');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-define('WP_HOME','http://localhost/razorbee/razorbee.com');
-define('WP_SITEURL','http://localhost/razorbee/razorbee.com');
+define('WP_HOME','http://192.168.0.108/razorbee/razorbee.com');
+define('WP_SITEURL','http://192.168.0.108/razorbee/razorbee.com');
 
 
 /**#@+

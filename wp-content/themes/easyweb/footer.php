@@ -1,7 +1,7 @@
-<?php 
+<?php
 /***************************************/
 /*	Close  head line if woocommerce available
-/***************************************/		
+/***************************************/
 if( isset($post) ){
 	if( 'product' == get_post_type( $post->ID )){
 		echo '</section>';
@@ -11,7 +11,7 @@ $footer_show = true;
 if(isset($post)){
 	$footer_show = rwmb_meta( 'easyweb_footer_show' );
 } ?>
-<?php 
+<?php
 if ( $footer_show || is_archive() || is_single() || is_home() ) : ?>
 <section id="pre-footer">
 <?php //start footer bars
@@ -31,7 +31,7 @@ if( $easyweb_webnus_options['easyweb_webnus_footer_subscribe_bar'] )
 ?>
 </section>
 
-	<footer id="footer" <?php if( $easyweb_webnus_options['easyweb_webnus_footer_color'] == 1 ) echo 'class="litex"';?>>
+	<footer id="footer" <?php if( $easyweb_webnus_options['easyweb_webnus_footer_color'] == 1 ) echo 'class="litex00"';?>>
 	<section class="container footer-in">
 	<div class="row">
 	<?php $footer_type = isset($easyweb_webnus_options['easyweb_webnus_footer_type']) ? $easyweb_webnus_options['easyweb_webnus_footer_type'] : '' ;
@@ -65,6 +65,22 @@ if( $easyweb_webnus_options['easyweb_webnus_footer_subscribe_bar'] )
 	<div class="col-md-12"><?php if( is_active_sidebar( 'footer-section-1' ) ) dynamic_sidebar('footer-section-1'); ?></div>
 	<?php break;
 	 } ?>
+	<div class="col-md-6">
+		<div class="widget">
+			<h5 class="subtitle">Address</h5>
+			<div class="textwidget" style="border:2px dashed white;padding-left:5px;">
+		<p style="font-size:25px;color:white;">Razorbee Online Solutions Pvt Ltd</p>
+<p style="color:white;">
+House no 21, 1st floor, Beside Anjaneya Swamy temple street,
+
+Adugodi, Koramangala 8th block, Bangalore, Karnataka -560030
+
+Bangalore: 560076
+
+karnataka, India</p>
+</div>
+</div>
+</div>
 	 </div>
 	 </section>
 	<!-- end-footer-in -->
