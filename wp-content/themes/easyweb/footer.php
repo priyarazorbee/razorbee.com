@@ -73,10 +73,7 @@ if( $easyweb_webnus_options['easyweb_webnus_footer_subscribe_bar'] )
 <p style="color:white;">
 House no 21, 1st floor, Beside Anjaneya Swamy temple street,
 
-Adugodi, Koramangala 8th block, Bangalore, Karnataka -560030
-
-Bangalore: 560076
-
+Adugodi, Koramangala 8th block,Bangalore: 560076
 karnataka, India</p>
 </div>
 </div>
