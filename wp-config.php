@@ -39,8 +39,8 @@ define('DB_CHARSET', 'utf8');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-define('WP_HOME','http://192.168.0.108/razorbee/razorbee.com');
-define('WP_SITEURL','http://192.168.0.108/razorbee/razorbee.com');
+define('WP_HOME','http://localhost/razorbee/razorbee.com');
+define('WP_SITEURL','http://localhost/razorbee/razorbee.com');
 
 
 /**#@+
@@ -64,7 +64,7 @@ define('NONCE_SALT',       'rTl5riva2uM53dK9l9FSPcotAD0GiFv13MVsRJGR690VigtM4kUN
 /**
  * Other customizations.
  */
-define('FS_METHOD','direct');define('FS_CHMOD_DIR',0755);define('FS_CHMOD_FILE',0644);
+//define('FS_METHOD','direct');define('FS_CHMOD_DIR',0755);define('FS_CHMOD_FILE',0644);
 define('WP_TEMP_DIR',dirname(__FILE__).'/wp-content/uploads');
 
 /**
