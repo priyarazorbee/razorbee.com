@@ -3504,9 +3504,21 @@
 -------------*/
 @media screen and (max-width:480px)
 {
+	.blox .achievementrow img
+	{
+		width: 100px !important;
+		    height: auto !important;
+	}
+	.blox .achievementrow .col
+	{
+		margin-right:60px !important;
+	}
 	.slide-image
 	{
-		background-size: 100% 100% !important;
+		background-size: 100% 80% !important;
+    height: 165% !important;
+		background-attachment: inherit !important;
+		background-position: inherit !important;
 	}
 	.max-hero .slides-control {
 		height: 80% !important;
@@ -3516,5 +3528,43 @@
 {
 	margin-top: 10% !important;
 }
+.maxslider
+{
+	height: 390px !important;
+}
+.maxslider .respo-tagline
+{
+	margin-top: 230px !important;
+	padding-top: 10px !important;
+}
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
+{
+	.blox .achievementrow img
+	{
+		width: 150% !important;
+		    height: auto !important;
+	}
+	.blox .achievementrow .col
+	{
+		margin-right:75px !important;
+	}
+	.slide-image
+	{
+		background-size: 100% 61% !important;
+		background-position: inherit !important;
+	}
+	.maxslider
+	{
+		height: 800px !important;
+	}
+	.max-hero .slides-control {
+		height: 90% !important;
+		width:100% !important;
+	}
+	.respo-tagline
+	{
+	margin-top: 10% !important;
+	}
 
 }
