@@ -71,8 +71,8 @@ if( $easyweb_webnus_options['easyweb_webnus_footer_subscribe_bar'] )
 			<div class="textwidget" style="border:2px dashed white;padding-left:5px;">
 		<p style="font-size:25px;color:white;">Razorbee Online Solutions Pvt Ltd</p>
 <p style="color:white;">
-House no 21, 1st floor, Beside Anjaneya Swamy temple street,
-
+House no 21, 1st floor, Beside Anjaneya Swamy temple street,</p>
+<p style="color:white;">
 Adugodi, Koramangala 8th block,Bangalore: 560076
 karnataka, India</p>
 </div>
