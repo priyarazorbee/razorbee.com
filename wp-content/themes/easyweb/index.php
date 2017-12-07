@@ -15,9 +15,9 @@
 	if ($template == 4 || $template == 5) // post count in template 4,5
 		$p_count = '0';
 ?>
-	
 
-<?php // start headline		
+
+<?php // start headline
 	if($easyweb_webnus_options['easyweb_webnus_blog_page_title_enable']){
 		echo'<section id="headline"><div class="container"><h2>'. $easyweb_webnus_options['easyweb_webnus_blog_page_title'] .'</h2></div></section>';
 	} // end headline ?>
@@ -36,14 +36,14 @@
 		elseif ($sidebar == 'right' || $sidebar == 'left')
 				$class='col-md-9 cntt-w';
 		else // none sidebar
-				$class='col-md-12 omega';	
+				$class='col-md-12 omega';
 		echo '<section class="'. $class .'">';
-	}else if ($template == 6){ 
+	}else if ($template == 6){
 		echo'<section id="main-content-pin"><div class="container"><div id="pin-content">';
-	}else if ($template == 7){ 
+	}else if ($template == 7){
 		echo'<section id="main-timeline"><div class="container"><div id="tline-content">';
 	} // end main content ?>
-	
+
 <?php
 	if ($template == 3)
 		echo '<div class="row">';
@@ -79,9 +79,9 @@
 					break;
 					case 7:
 						global $post;
-						$post_format = get_post_format(get_the_ID());	
-						$content = get_the_content();	
-						if( !$post_format ) $post_format = 'standard';	
+						$post_format = get_post_format(get_the_ID());
+						$content = get_the_content();
+						if( !$post_format ) $post_format = 'standard';
 						if(($easyweb_webnus_last_time != date(' F Y',strtotime($post->post_date)) ) || $easyweb_webnus_i==1){
 							$easyweb_webnus_last_time = date(' F Y',strtotime($post->post_date));
 							echo '<div class="tline-topdate">'.  date(' F Y',strtotime($post->post_date)) .'</div>';
@@ -105,12 +105,12 @@
 										$video = $matches[0];
 										echo do_shortcode($video);
 										$content = preg_replace('/'.$pattern.'/s', '', $content);
-									}else				
+									}else
 									if( (!empty( $meta_video )) ){
 										echo do_shortcode($meta_video);
 									}
 								}else
-								if( 'gallery'  == $post_format){			
+								if( 'gallery'  == $post_format){
 									$pattern = '\\[' . '(\\[?)' . "(gallery)" . '(?![\\w-])' . '(' . '[^\\]\\/]*' . '(?:' . '\\/(?!\\])' . '[^\\]\\/]*' . ')*?' . ')' . '(?:' . '(\\/)' . '\\]' . '|' . '\\]' . '(?:' . '(' . '[^\\[]*+' . '(?:' . '\\[(?!\\/\\2\\])' . '[^\\[]*+' . ')*+' . ')' . '\\[\\/\\2\\]' . ')?' . ')' . '(\\]?)';
 									preg_match('/'.$pattern.'/s', $post->post_content, $matches);
 									if( (is_array($matches)) && (isset($matches[3])) && ($matches[2] == 'gallery') && (isset($matches[2])))
@@ -122,21 +122,21 @@
 										$content = preg_replace('/'.$pattern.'/s', '', $content);
 									}
 								}else
-									get_the_image( array( 'meta_key' => array( 'Thumbnail', 'Thumbnail' ), 'size' => 'easyweb_webnus_blog2_thumb' )  ); 
+									get_the_image( array( 'meta_key' => array( 'Thumbnail', 'Thumbnail' ), 'size' => 'easyweb_webnus_blog2_thumb' )  );
 							} ?> <br>
 							  <div class="tline-ecxt">
 								<?php if(  $easyweb_webnus_options['easyweb_webnus_blog_meta_category_enable'] ):?>
 								<h6 class="blog-cat-tline"> <?php the_category('- ') ?></h6>
 								<?php endif; ?>
 						  <?php
-							if($easyweb_webnus_options['easyweb_webnus_blog_posttitle_enable'] ) { 
-								if( ('aside' != $post_format ) && ('quote' != $post_format)  ) { 	
-									if( 'link' == $post_format ) { 
+							if($easyweb_webnus_options['easyweb_webnus_blog_posttitle_enable'] ) {
+								if( ('aside' != $post_format ) && ('quote' != $post_format)  ) {
+									if( 'link' == $post_format ) {
 									 preg_match('/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i', $content,$matches);
 									 $content = preg_replace('/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i','', $content,1);
 									 $link ='';
 									if(isset($matches) && is_array($matches))
-									$link = $matches[0];	
+									$link = $matches[0];
 								?>
 								<h4><a href="<?php echo esc_url($link); ?>"><?php the_title(); ?></a></h4>
 							<?php
