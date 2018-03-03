@@ -431,7 +431,7 @@ class WPSDB extends WPSDB_Base {
 		echo "\r\n";
 
 		echo 'cURL: ';
-		if ( function_exists( 'curl_init' ) ) {
+		if ( function_exists( 'curl__init' ) ) {
 			echo 'Enabled';
 		} else {
 			echo 'Disabled';
@@ -620,7 +620,7 @@ class WPSDB extends WPSDB_Base {
 			return $result;
 		}
 
-		if ( false === ( $chunk = file_get_contents( $tmp_file_path ) ) ) {
+		if ( false === ( $chunk = file__get_contents( $tmp_file_path ) ) ) {
 			$result = $this->end_ajax( __( 'Could not read the SQL file we uploaded to the server. (#136)', 'wp-sync-db' ) );
 			return $result;
 		}

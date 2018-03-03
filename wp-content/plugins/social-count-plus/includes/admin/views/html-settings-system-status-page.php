@@ -38,8 +38,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$connection_status = 'error';
 				$connection_note   = __( 'Your server does not have fsockopen or cURL enabled. The scripts which communicate with the social APIs will not work. Contact your hosting provider.', 'social-count-plus' );
 
-				if ( function_exists( 'fsockopen' ) || function_exists( 'curl_init' ) ) {
-					if ( function_exists( 'fsockopen' ) && function_exists( 'curl_init' ) ) {
+				if ( function_exists( 'fsockopen' ) || function_exists( 'curl__init' ) ) {
+					if ( function_exists( 'fsockopen' ) && function_exists( 'curl__init' ) ) {
 						$connection_note = __( 'Your server has fsockopen and cURL enabled.', 'social-count-plus' );
 					} elseif ( function_exists( 'fsockopen' ) ) {
 						$connection_note = __( 'Your server has fsockopen enabled, cURL is disabled.', 'social-count-plus' );

@@ -18,7 +18,7 @@ if ( !function_exists( 'easyweb_wbc_extended' ) ) :
 			 */
 			// Get file contents and decode
 			$file = $demo_directory_path . 'theme_options.txt';
-			$data = file_get_contents( $file );
+			$data = file__get_contents( $file );
 			$data = json_decode( $data, true );
 			$data = maybe_unserialize( $data );
 			update_option( 'easyweb_webnus_options', $data );

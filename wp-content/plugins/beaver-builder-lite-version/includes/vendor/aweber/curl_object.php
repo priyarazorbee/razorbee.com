@@ -47,7 +47,7 @@ interface CurlInterface {
     /**
      * init
      *
-     * Encapsulates curl_init - Initialize a cURL session.
+     * Encapsulates curl__init - Initialize a cURL session.
      * @param string $url - url to use.
      * @access public 
      * @return cURL handle on success, FALSE on failure.
@@ -91,7 +91,7 @@ class CurlObject implements CurlInterface {
     }
 
     public function init($url) {
-        return curl_init($url); 
+        return curl__init($url); 
     }
     
     public function setopt ($ch , $option , $value) {

@@ -463,11 +463,11 @@ Class Drip_Api {
      * @throws Exception
      */
     public function make_request($url, $params = array(), $req_method = self::GET) {
-        if (!function_exists('curl_init')) {
+        if (!function_exists('curl__init')) {
             throw new Exception("Cannot find cURL php extension or it's not loaded.");
         }
 
-        $ch = curl_init();
+        $ch = curl__init();
 
         if ($this->debug) {
             //curl_setopt($ch, CURLOPT_HEADER, true);

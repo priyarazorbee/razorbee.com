@@ -40,7 +40,7 @@ class ML_Rest_Base
 
     public function execute($method = null, $data = null)
     {
-        $ch = curl_init();
+        $ch = curl__init();
         $this->setAuth($ch);
 
         if ($method)

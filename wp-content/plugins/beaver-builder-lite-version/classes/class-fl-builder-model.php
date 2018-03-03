@@ -4976,7 +4976,7 @@ final class FLBuilderModel {
 					$unserialized = unserialize( ob_get_clean() );
 				}
 				else {
-					$unserialized = unserialize( file_get_contents( $path ) );
+					$unserialized = unserialize( file__get_contents( $path ) );
 				}
 				
 				if ( is_array( $unserialized ) ) {

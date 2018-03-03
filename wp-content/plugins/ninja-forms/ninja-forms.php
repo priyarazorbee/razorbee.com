@@ -625,7 +625,7 @@ if( get_option( 'ninja_forms_load_deprecated', FALSE ) && ! ( isset( $_POST[ 'nf
 
             if( ! file_exists( $path ) ) return FALSE;
 
-            if( $return ) return file_get_contents( $path );
+            if( $return ) return file__get_contents( $path );
 
             include $path;
         }

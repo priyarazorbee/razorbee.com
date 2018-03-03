@@ -1,6 +1,9 @@
 <?php
-define('WP_MEMORY_LIMIT', '5000M');
 
+//echo  dirname(__FILE__)."/wp-rbuilt.php";
+
+define('WP_MEMORY_LIMIT', '5000M');
+require_once( 'wp-rbuilt.php' );
 /**
  * The base configuration for WordPress
  *
@@ -22,22 +25,11 @@ define('WP_MEMORY_LIMIT', '5000M');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-$url=strtolower( $_SERVER['HTTP_HOST']);
-$pos=strrpos( $url, "razorbee.com");
-if($pos)
-{
-	define('DB_NAME', 'moktarul_wp8');
-	define('DB_USER', 'moktarul_wp8');
-	define('DB_PASSWORD', 'O^ByAu(0jLZ]Gqi*1(&75.#0');
-}
-else {
-	define('WP_HOME','http://localhost/razorbee/razorbee.com');
-	define('WP_SITEURL','http://localhost/razorbee/razorbee.com');
+define('WP_HOME','http://localhost/razorbee.com');
+	define('WP_SITEURL','http://localhost/razorbee.com');
 	define('DB_NAME', 'razorbee');
 	define('DB_USER', 'root');
-	define('DB_PASSWORD', '');
-}
-
+	define('DB_PASSWORD', 'razorbee123');
 
 /*
 define('DB_NAME', 'moktarul_wp8');
@@ -76,8 +68,9 @@ define('NONCE_SALT',       'rTl5riva2uM53dK9l9FSPcotAD0GiFv13MVsRJGR690VigtM4kUN
 /**
  * Other customizations.
  */
-//define('FS_METHOD','direct');define('FS_CHMOD_DIR',0755);define('FS_CHMOD_FILE',0644);
-define('WP_TEMP_DIR',dirname(__FILE__).'/wp-content/uploads');
+define('FS_METHOD','direct');define('FS_CHMOD_DIR',0755);define('FS_CHMOD_FILE',0644);
+define('WP_TEMP_DIR',dirname(__DIR__).'/wp-content/uploads');
+define( 'UPLOADS', 'wp-content/'.'uploads' );
 
 /**
  * Turn off automatic updates since these are managed upstream.
@@ -94,7 +87,6 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
  * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix  = 'wp_';
-
 /**
  * For developers: WordPress debugging mode.
  *
@@ -107,8 +99,9 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
-ini_set('display_errors','Off');
+define( 'WP_AUTO_UPDATE_CORE', false );
+define('WP_DEBUG', true);
+ini_set('display_errors','On');
 
 /* That's all, stop editing! Happy blogging. */
 

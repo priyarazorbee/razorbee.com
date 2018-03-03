@@ -876,7 +876,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 		/*if ( is_multisite() ){
 			if(!get_site_option('revslider-static-css')){
 				if(file_exists(RS_PLUGIN_PATH.'public/assets/css/static-captions.css')){
-					$contentCSS = @file_get_contents(RS_PLUGIN_PATH.'public/assets/css/static-captions.css');
+					$contentCSS = @file__get_contents(RS_PLUGIN_PATH.'public/assets/css/static-captions.css');
 					self::updateStaticCss($contentCSS);
 				}
 			}
@@ -884,7 +884,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 		}else{*/
 			if(!get_option('revslider-static-css')){
 				if(file_exists(RS_PLUGIN_PATH.'public/assets/css/static-captions.css')){
-					$contentCSS = @file_get_contents(RS_PLUGIN_PATH.'public/assets/css/static-captions.css');
+					$contentCSS = @file__get_contents(RS_PLUGIN_PATH.'public/assets/css/static-captions.css');
 					self::updateStaticCss($contentCSS);
 				}
 			}
@@ -1174,13 +1174,13 @@ class RevSliderOperations extends RevSliderElementsBase{
 	 */
 	public static function getCaptionsCssContentArray(){
 		if(file_exists(RS_PLUGIN_PATH.'public/assets/css/captions.css'))
-			$contentCSS = file_get_contents(RS_PLUGIN_PATH.'public/assets/css/captions.css');
+			$contentCSS = file__get_contents(RS_PLUGIN_PATH.'public/assets/css/captions.css');
 		else if(file_exists(RS_PLUGIN_PATH.'public/assets/css/captions-original.css'))
-			$contentCSS = file_get_contents(RS_PLUGIN_PATH.'public/assets/css/captions-original.css');
+			$contentCSS = file__get_contents(RS_PLUGIN_PATH.'public/assets/css/captions-original.css');
 		else if(file_exists(RS_PLUGIN_PATH.'backup/'.'captions.css'))
-			$contentCSS = file_get_contents(RS_PLUGIN_PATH.'backup/'.'captions.css');
+			$contentCSS = file__get_contents(RS_PLUGIN_PATH.'backup/'.'captions.css');
 		else if(file_exists(RS_PLUGIN_PATH.'backup/'.'captions-original.css'))
-			$contentCSS = file_get_contents(RS_PLUGIN_PATH.'backup/'.'captions-original.css');
+			$contentCSS = file__get_contents(RS_PLUGIN_PATH.'backup/'.'captions-original.css');
 		else
 			RevSliderFunctions::throwError("No captions.css found! This installation is incorrect, please make sure to reupload the Slider Revolution plugin and try again!");
 		

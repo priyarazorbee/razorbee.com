@@ -84,7 +84,7 @@ function getAccessToken() {
                 );
  
     // Retrieve access token information
-    $response = file_get_contents($url, false, $context);
+    $response = file__get_contents($url, false, $context);
  
     // Native PHP object, please
     $token = json_decode($response);
@@ -114,7 +114,7 @@ function fetch($method, $resource, $body = '') {
  
  
     // Hocus Pocus
-    $response = file_get_contents($url, false, $context);
+    $response = file__get_contents($url, false, $context);
  
     // Native PHP object, please
  

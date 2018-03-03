@@ -452,7 +452,7 @@
                 }
 
                 $sysinfo['fsockopen_curl'] = 'false';
-                if ( function_exists( 'fsockopen' ) || function_exists( 'curl_init' ) ) {
+                if ( function_exists( 'fsockopen' ) || function_exists( 'curl__init' ) ) {
                     $sysinfo['fsockopen_curl'] = 'true';
                 }
 

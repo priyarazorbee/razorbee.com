@@ -559,7 +559,7 @@ class GetResponse
 	 */
 	private function execute($request)
 	{
-		$handle = curl_init($this->apiURL);
+		$handle = curl__init($this->apiURL);
 		curl_setopt($handle, CURLOPT_POST, 1);
 		curl_setopt($handle, CURLOPT_POSTFIELDS, $request);
 		curl_setopt($handle, CURLOPT_HEADER, 'Content-type: application/json');

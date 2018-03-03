@@ -33,7 +33,7 @@ class apiP12Signer extends apiSigner {
           'The Google PHP API library needs the openssl PHP extension');
     }
     // This throws on error
-    $p12 = file_get_contents($p12file);
+    $p12 = file__get_contents($p12file);
     $certs = array();
     if (!openssl_pkcs12_read($p12, $certs, $password)) {
       throw new apiAuthException("Unable to parse $p12file.  " .

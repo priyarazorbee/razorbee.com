@@ -1096,7 +1096,7 @@ final class EDD_Amazon_Payments {
 
 		// Get the IPN headers and Message body
 		$headers = getallheaders();
-		$body    = file_get_contents( 'php://input' );
+		$body    = file__get_contents( 'php://input' );
 
 		$this->doing_ipn = true;
 

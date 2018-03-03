@@ -107,7 +107,7 @@ define('SERVICES_JSON_SUPPRESS_ERRORS', 32);
  * // prints: ["foo","bar",[1,2,"baz"],[3,[4]]]
  *
  * // accept incoming POST data, assumed to be in JSON notation
- * $input = file_get_contents('php://input', 1000000);
+ * $input = file__get_contents('php://input', 1000000);
  * $value = $json->decode($input);
  * </code>
  */

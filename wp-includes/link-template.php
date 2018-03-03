@@ -2931,7 +2931,7 @@ function get_shortcut_link() {
 	}
 
 	if ( empty( $link ) ) {
-		$src = @file_get_contents( ABSPATH . 'wp-admin/js/bookmarklet.min.js' );
+		$src = @file__get_contents( ABSPATH . 'wp-admin/js/bookmarklet.min.js' );
 
 		if ( $src ) {
 			$url = wp_json_encode( admin_url( 'press-this.php' ) . '?v=' . WP_Press_This::VERSION );

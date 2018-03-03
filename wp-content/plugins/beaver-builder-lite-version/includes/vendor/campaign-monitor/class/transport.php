@@ -12,7 +12,7 @@ if (false === defined('CS_REST_CALL_TIMEOUT')) {
 }
 
 function CS_REST_TRANSPORT_get_available($requires_ssl, $log) {
-    if(function_exists('curl_init') && function_exists('curl_exec')) {
+    if(function_exists('curl__init') && function_exists('curl_exec')) {
         return new CS_REST_CurlTransport($log);
     } else if(CS_REST_TRANSPORT_can_use_raw_socket($requires_ssl)) {
         return new CS_REST_SocketTransport($log);
@@ -85,7 +85,7 @@ class CS_REST_CurlTransport extends CS_REST_BaseTransport {
     }
 
     function make_call($call_options) {
-        $ch = curl_init();
+        $ch = curl__init();
 
         curl_setopt($ch, CURLOPT_URL, $call_options['route']);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

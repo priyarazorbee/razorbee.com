@@ -591,7 +591,7 @@
 				$ver = phpversion();
 				if ($ver[0] >= 5)
 				{
-					$data = file_get_contents('php://input');
+					$data = file__get_contents('php://input');
 				}
 				else
 				{

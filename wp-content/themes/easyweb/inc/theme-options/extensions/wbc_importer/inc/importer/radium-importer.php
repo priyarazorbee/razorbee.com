@@ -261,7 +261,7 @@ if ( !class_exists( 'Radium_Theme_Importer' ) ) {
       }
 
       // Get file contents and decode
-      $data = file_get_contents( $file );
+      $data = file__get_contents( $file );
       $data = json_decode( $data, true );
       $data = maybe_unserialize( $data );
 
@@ -336,7 +336,7 @@ if ( !class_exists( 'Radium_Theme_Importer' ) ) {
       }
 
       // Get file contents and decode
-      $data = file_get_contents( $file );
+      $data = file__get_contents( $file );
 
       $data = json_decode( $data );
 

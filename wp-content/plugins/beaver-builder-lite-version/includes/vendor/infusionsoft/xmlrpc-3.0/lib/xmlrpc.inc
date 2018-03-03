@@ -844,7 +844,7 @@ class xmlrpc_client
 
         // if ZLIB is enabled, let the client by default accept compressed responses
         if (function_exists('gzinflate') || (
-                function_exists('curl_init') && (($info = curl_version()) &&
+                function_exists('curl__init') && (($info = curl_version()) &&
                     ((is_string($info) && strpos($info, 'zlib') !== null) || isset($info['libz_version'])))
             )
         ) {
@@ -1304,7 +1304,7 @@ class xmlrpc_client
                               $proxyhost = '', $proxyport = 0, $proxyusername = '', $proxypassword = '', $proxyauthtype = 1, $method = 'https',
                               $keepalive = false, $key = '', $keypass = '')
     {
-        if (!function_exists('curl_init')) {
+        if (!function_exists('curl__init')) {
             $this->errstr = 'CURL unavailable on this install';
             $r = new xmlrpcresp(0, $GLOBALS['xmlrpcerr']['no_curl'], $GLOBALS['xmlrpcstr']['no_curl']);
             return $r;
@@ -1359,7 +1359,7 @@ class xmlrpc_client
         }
 
         if (!$keepalive || !$this->xmlrpc_curl_handle) {
-            $curl = curl_init($method . '://' . $server . ':' . $port . $this->path);
+            $curl = curl__init($method . '://' . $server . ':' . $port . $this->path);
             if ($keepalive) {
                 $this->xmlrpc_curl_handle = $curl;
             }

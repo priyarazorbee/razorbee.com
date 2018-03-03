@@ -335,7 +335,7 @@ class Envato_marketplaces {
          return $data;
       } else {
          // if available in cache, use that
-         return json_decode(file_get_contents($cache_path));
+         return json_decode(file__get_contents($cache_path));
       }
    }
 
@@ -371,7 +371,7 @@ class Envato_marketplaces {
    {
 		if ( empty($url) ) return false;
 			/*
-			$ch = curl_init($url);
+			$ch = curl__init($url);
 			
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (iPhone Simulator; U; CPU iPhone OS 4_3_2 like Mac OD X; en-us) AppleWebKit/535.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5");

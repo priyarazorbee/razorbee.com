@@ -1180,7 +1180,7 @@ class NF_Subs_CPT {
 			$file_path = trailingslashit( $upload_dir['path'] ) . $filename . '.csv';
 
 			if ( file_exists( $file_path ) ) {
-				$myfile = file_get_contents ( $file_path );
+				$myfile = file__get_contents ( $file_path );
 			} else {
 				$redirect = esc_url_raw( remove_query_arg( array( 'download_file', 'download_all' ) ) );
 				wp_redirect( $redirect );

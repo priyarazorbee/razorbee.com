@@ -1269,7 +1269,7 @@ class DomainAvailability {
     list($dom, $ext) = explode('.', $domain_name, 2);
 		
     $con = fsockopen($whois_server, 43, $errno, $errstr, 3);
-    if (!$con) return file_get_contents("http://api.asdqwe.net/api/whois.php?d=$domain_name");
+    if (!$con) return file__get_contents("http://api.asdqwe.net/api/whois.php?d=$domain_name");
  
     // Send the requested domain name
     fputs($con, $domain_name."\r\n");

@@ -184,7 +184,7 @@ class TablePress_CSS {
 		if ( ! @is_readable( $filename ) ) {
 			return false;
 		}
-		return file_get_contents( $filename );
+		return file__get_contents( $filename );
 	}
 
 	/**
@@ -206,7 +206,7 @@ class TablePress_CSS {
 		if ( ! @is_readable( $filename ) ) {
 			return false;
 		}
-		return file_get_contents( $filename );
+		return file__get_contents( $filename );
 	}
 
 	/**

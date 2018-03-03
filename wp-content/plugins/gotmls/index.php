@@ -79,7 +79,7 @@ function GOTMLS_admin_add_help_tab() {
 		'content'	=> '<p>'.__("Make sure the Definition Updates are current and Run a Complete Scan.").'</p><p>'.sprintf(__("If Known Threats are found and displayed in red then there will be a button to '%s'. If only Potentional Threats are found then there is no automatic fix because those are probably not malicious."), GOTMLS_Automatically_Fix_LANGUAGE).'</p><p>'.__("A backup of the original infected files are placed in the Quarantine in case you need to restore them or just want to look at them later. You can delete these files if you don't want to save more.").'</p>'
 	));
 	$FAQMarker = '== Frequently Asked Questions ==';
- 	if (is_file(dirname(__FILE__).'/readme.txt') && ($readme = explode($FAQMarker, @file_get_contents(dirname(__FILE__).'/readme.txt').$FAQMarker)) && strlen($readme[1]) && ($readme = explode("==", $readme[1]."==")) && strlen($readme[0])) {
+ 	if (is_file(dirname(__FILE__).'/readme.txt') && ($readme = explode($FAQMarker, @file__get_contents(dirname(__FILE__).'/readme.txt').$FAQMarker)) && strlen($readme[1]) && ($readme = explode("==", $readme[1]."==")) && strlen($readme[0])) {
 		$screen->add_help_tab(array(
 			'id'	=> "GOTMLS_FAQs",
 			'title'	=> __("FAQs", 'gotmls'),
@@ -719,7 +719,7 @@ function GOTMLS_Firewall_Options() {
 	$head = str_replace(array('|<Files[^>]+', '(.+?)', '\\s*(', '\\s*)*|is'), array("<Files ", "$deny\n", "\n", "\n"), $find);
 	$htaccess = "";
 	if (is_file(ABSPATH.'.htaccess'))
-		if (($htaccess = @file_get_contents(ABSPATH.'.htaccess')) && strlen($htaccess))
+		if (($htaccess = @file__get_contents(ABSPATH.'.htaccess')) && strlen($htaccess))
 			$patch_found = preg_match($find, $htaccess);
 	if ($patch_found) {
 		$errdiv = "";
@@ -748,7 +748,7 @@ function GOTMLS_Firewall_Options() {
 	else
 		$wp_config = 'wp-config.php';
 	if (is_file(ABSPATH.$wp_config)) {
-		if (($config = @file_get_contents(ABSPATH.$wp_config)) && strlen($config)) {
+		if (($config = @file__get_contents(ABSPATH.$wp_config)) && strlen($config)) {
 			if ($patch_found = preg_match($find, $config)) {
 				if (strpos($config, substr($head, strpos($head, "file_exists")))) {
 					if ($GOTMLS_nonce_found && isset($_POST["GOTMLS_patching"]) && GOTMLS_file_put_contents(ABSPATH.$wp_config, preg_replace('#'.$lt.'\?[ph\s]+(//.*\s*)*\?'.$gt.'#i', "", preg_replace($find, "", $config))))
@@ -771,7 +771,7 @@ function GOTMLS_Firewall_Options() {
 			$patch_action .= $lt.'div class="error"'.$gt.__("wp-config.php Not Readable!",'gotmls').$lt.'/div'.$gt;
 	} else
 		$patch_action .= $lt.'div class="error"'.$gt.__("wp-config.php Not Found!",'gotmls').$lt.'/div'.$gt;
-	if ($GOTMLS_nonce_found && file_exists(ABSPATH.'wp-login.php') && ($login = @file_get_contents(ABSPATH.'wp-login.php')) && strlen($login) && (preg_match($find, $login))) {
+	if ($GOTMLS_nonce_found && file_exists(ABSPATH.'wp-login.php') && ($login = @file__get_contents(ABSPATH.'wp-login.php')) && strlen($login) && (preg_match($find, $login))) {
 		if (isset($_POST["GOTMLS_patching"]) && ($source = GOTMLS_get_URL("http://core.svn.wordpress.org/tags/".$wp_version.'/wp-login.php')) && (strlen($source) > 500) && GOTMLS_file_put_contents(ABSPATH.'wp-login.php', $source))
 			$patch_action .= $lt.'div class="updated"'.$gt.__("Removed Old Brute-Force Login Patch",'gotmls').$lt.'/div'.$gt;
 		else
@@ -1516,7 +1516,7 @@ function GOTMLS_ajax_whitelist() {
 		if (isset($_POST['GOTMLS_whitelist']) && isset($_POST['GOTMLS_chksum'])) {
 			$file = GOTMLS_decode($_POST['GOTMLS_whitelist']);
 			$chksum = explode("O", $_POST['GOTMLS_chksum']."O");
-			if (strlen($chksum[0]) == 32 && strlen($chksum[1]) == 32 && is_file($file) && md5(@file_get_contents($file)) == $chksum[0]) {
+			if (strlen($chksum[0]) == 32 && strlen($chksum[1]) == 32 && is_file($file) && md5(@file__get_contents($file)) == $chksum[0]) {
 				$filesize = @filesize($file);
 				if (true) {
 					if (!isset($GLOBALS["GOTMLS"]["tmp"]["definitions_array"]["whitelist"][$file][0]))

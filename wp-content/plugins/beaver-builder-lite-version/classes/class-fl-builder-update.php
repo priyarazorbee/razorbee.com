@@ -213,7 +213,7 @@ final class FLBuilderUpdate {
 			if(file_exists($backup_path)) {
 			
 				// Get the backup data.
-				$backup = unserialize(file_get_contents($backup_path));
+				$backup = unserialize(file__get_contents($backup_path));
 				
 				// Check for the correct backup data.
 				if(!isset($backup->nodes) || !isset($backup->meta)) {

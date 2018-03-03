@@ -2049,13 +2049,13 @@ final class FLBuilder {
 
 				// Get the standard module css.
 				if(file_exists($file)) {
-					$css .= file_get_contents($file);
+					$css .= file__get_contents($file);
 				}
 
 				// Get the responsive module css.
 				if($global_settings->responsive_enabled && file_exists($file_responsive)) {
 					$css .= '@media (max-width: '. $global_settings->responsive_breakpoint .'px) { ';
-					$css .= file_get_contents($file_responsive);
+					$css .= file__get_contents($file_responsive);
 					$css .= ' }';
 				}
 			}
@@ -2119,16 +2119,16 @@ final class FLBuilder {
 		$global_settings = FLBuilderModel::get_global_settings();
 		
 		// Core layout css
-		$css = file_get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout.css');
+		$css = file__get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout.css');
 		
 		// Core button defaults
 		if ( ! defined( 'FL_THEME_VERSION' ) ) {
-			$css .= file_get_contents( FL_BUILDER_DIR . '/css/fl-builder-layout-button-defaults.css' );
+			$css .= file__get_contents( FL_BUILDER_DIR . '/css/fl-builder-layout-button-defaults.css' );
 		}
 		
 		// Core layout RTL css
 		if(is_rtl()) {
-			$css .= file_get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout-rtl.css');
+			$css .= file__get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout-rtl.css');
 		}
 		
 		// Global node css
@@ -2152,7 +2152,7 @@ final class FLBuilder {
 			$css .= '@media (max-width: '. $global_settings->medium_breakpoint .'px) { ';
 
 				// Core medium layout css
-				$css .= file_get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout-medium.css');
+				$css .= file__get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout-medium.css');
 				
 				// Global node medium css
 				foreach ( array(
@@ -2173,11 +2173,11 @@ final class FLBuilder {
 			$css .= '@media (max-width: '. $global_settings->responsive_breakpoint .'px) { ';
 			
 				// Core responsive layout css
-				$css .= file_get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout-responsive.css');
+				$css .= file__get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout-responsive.css');
 				
 				// Auto spacing
 				if ( ! isset( $global_settings->auto_spacing ) || $global_settings->auto_spacing ) {
-					$css .= file_get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout-auto-spacing.css');
+					$css .= file__get_contents(FL_BUILDER_DIR . '/css/fl-builder-layout-auto-spacing.css');
 				}
 				
 				// Global node responsive css
@@ -2577,7 +2577,7 @@ final class FLBuilder {
 		$js .= ob_get_clean();
 
 		// Core layout JS.
-		$js .= file_get_contents(FL_BUILDER_DIR . 'js/fl-builder-layout.js');
+		$js .= file__get_contents(FL_BUILDER_DIR . 'js/fl-builder-layout.js');
 				
 		// Add the global settings JS.
 		$js .= $global_settings->js;
@@ -2680,7 +2680,7 @@ final class FLBuilder {
 		$file = $module->dir . 'js/frontend.js';
 
 		if ( file_exists( $file ) && ! in_array( $module->settings->type, $compiled ) ) {
-			$js .= "\n" . file_get_contents( $file );
+			$js .= "\n" . file__get_contents( $file );
 			$compiled[] = $module->settings->type;
 		}
 

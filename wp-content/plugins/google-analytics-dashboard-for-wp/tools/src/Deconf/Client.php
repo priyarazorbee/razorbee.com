@@ -141,7 +141,7 @@ class Deconf_Client
    */
   public function loadServiceAccountJson($jsonLocation, $scopes)
   {
-    $data = json_decode(file_get_contents($jsonLocation));
+    $data = json_decode(file__get_contents($jsonLocation));
     if (isset($data->type) && $data->type == 'service_account') {
       // Service Account format.
       $cred = new Deconf_Auth_AssertionCredentials(
@@ -186,7 +186,7 @@ class Deconf_Client
    */
   public function setAuthConfigFile($file)
   {
-    $this->setAuthConfig(file_get_contents($file));
+    $this->setAuthConfig(file__get_contents($file));
   }
 
   /**

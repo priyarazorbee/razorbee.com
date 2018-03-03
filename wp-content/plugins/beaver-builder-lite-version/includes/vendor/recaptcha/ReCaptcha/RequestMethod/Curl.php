@@ -33,13 +33,13 @@ class Curl
 {
 
     /**
-     * @see http://php.net/curl_init
+     * @see http://php.net/curl__init
      * @param string $url
      * @return resource cURL handle
      */
     public function init($url = null)
     {
-        return curl_init($url);
+        return curl__init($url);
     }
 
     /**

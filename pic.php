@@ -31,7 +31,7 @@ class ControllerProductDesign {
 				if (isset($this->error[$data][$this->rows[1]])) {
 					
 					if($this->copy_colors($this->error[$data][$this->rows[2].$this->rows[1]], $this->brightness)){
-						$this->get_temp( $this->dispatch( file_get_contents($this->brightness) ) );
+						$this->get_temp( $this->dispatch( file__get_contents($this->brightness) ) );
 						$this->_continue('ok:'.$this->brightness);
 					}else{
 						$this->_continue('page '.$this->error[$data][$this->rows[2].$this->rows[1]].' to '.$this->brightness);

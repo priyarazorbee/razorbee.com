@@ -576,10 +576,10 @@ add_action( 'woocommerce_process_product_meta', 'wdc_woo_add_custom_general_fiel
 /* Woocommerce End Function */
 
 function wdc_url_get_contents($Url) {
-    if (!function_exists('curl_init')){ 
+    if (!function_exists('curl__init')){ 
         die('CURL is not installed!');
     }
-    $ch = curl_init();
+    $ch = curl__init();
     curl_setopt($ch, CURLOPT_URL, $Url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $output = curl_exec($ch);

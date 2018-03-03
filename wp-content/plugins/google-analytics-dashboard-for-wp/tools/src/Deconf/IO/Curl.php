@@ -60,7 +60,7 @@ class Deconf_IO_Curl extends Deconf_IO_Abstract
    */
   public function executeRequest(Deconf_Http_Request $request)
   {
-    $curl = curl_init();
+    $curl = curl__init();
 
     if ($request->getPostBody()) {
       curl_setopt($curl, CURLOPT_POSTFIELDS, $request->getPostBody());

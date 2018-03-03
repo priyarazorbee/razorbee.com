@@ -62,7 +62,7 @@ function edd_create_protection_files( $force = false, $method = false ) {
 		// Top level .htaccess file
 		$rules = edd_get_htaccess_rules( $method );
 		if ( edd_htaccess_exists() ) {
-			$contents = @file_get_contents( $upload_path . '/.htaccess' );
+			$contents = @file__get_contents( $upload_path . '/.htaccess' );
 			if ( $contents !== $rules || ! $contents ) {
 				// Update the .htaccess rules if they don't match
 				@file_put_contents( $upload_path . '/.htaccess', $rules );

@@ -41,8 +41,8 @@ extract(shortcode_atts(array(
 	'maxslider_image5'=>'',
 	'maxslider_parallax'=>'true',
 	'css_animation'=>'',
-		
-   
+
+
 ), $atts));
 
 wp_enqueue_style( 'js_composer_front' );
@@ -65,32 +65,35 @@ switch($row_type){
 		$output .= wpb_js_remove_wpautop($content);
 		$output .= '</section><section class="container"><div class="row-wrapper-x">'.$this->endBlockComment('row');
 		break;
-	case 2: 
+	case 2:
 		$output = wpb_js_remove_wpautop("[blox id='$row_id'  row_pattern='$row_pattern' row_color='$row_color' bgcolor='$blox_bgcolor' img='{$blox_image}' dark='{$blox_dark}' height='{$blox_height}' padding_top='{$blox_padding_top}' padding_bottom='{$blox_padding_bottom}' bg_attachment='{$blox_bg_attachment}' bg_position='{$blox_bg_position}' bgcover='{$blox_cover}' repeat='{$blox_repeat}' class='{$align_center} {$page_title} {$full_container} {$responsive_bg_none} {$blox_class}']" . $content . "[/blox]");
 
 		break;
 	case 3:
 		$output = wpb_js_remove_wpautop("[parallax id='$row_id'  row_pattern='$row_pattern' row_color='$row_color' bgcolor='$blox_bgcolor' img='{$blox_image}' dark='{$blox_dark}' height='{$blox_height}' padding_top='{$blox_padding_top}' padding_bottom='{$blox_padding_bottom}' bg_attachment='{$blox_bg_attachment}' bgcover='{$blox_cover}' repeat='{$blox_repeat}' speed='{$parallax_speed}' class='{$align_center} {$page_title} {$full_container} {$responsive_bg_none} {$blox_class}']".$content."[/parallax]");
 		break;
-	
+
 	case 5:
 			$output = wpb_js_remove_wpautop("[videorow id='$row_id' img='{$blox_image}' dark='{$blox_dark}' height='{$blox_height}' padding_top='{$blox_padding_top}' padding_bottom='{$blox_padding_bottom}' bg_attachment='{$blox_bg_attachment}' bgcover='{$blox_cover}' repeat='{$blox_repeat}' class='{$align_center} {$page_title} {$blox_class}' video_src='$video_src' video_sharing_url='$video_sharing_url' mp4_format='$mp4_format' webm_format='$webm_format' ogg_format='$ogg_format' img_preview_video='$img_preview_video' video_pattern='$video_pattern']" . $content . "[/videorow]");
 		break;
 	case 6:
+
+  if (!isset($maxslider_pattern))$maxslider_pattern = "";
 			$output = wpb_js_remove_wpautop("[maxslider id='$row_id' slide1_img_url='$maxslider_image1' slide2_img_url='$maxslider_image2' slide3_img_url='$maxslider_image3' slide4_img_url='$maxslider_image4' slide5_img_url='$maxslider_image5' slide_img_pattern='$maxslider_pattern' slide_img_parallax='$maxslider_parallax' class='$blox_class']" . $content . '[/maxslider]');
 	break;
-	
+
 	default:
 		if(!empty($row_id))
 			$output .= '<section id="'.$row_id.'" class="' . $css_class . ' ' . $blox_class . '">';
 		else
+
 			$output .= '<section class="' . $css_class . ' ' . $blox_class . '">';
 		$output .= wpb_js_remove_wpautop($content);
 		$output .= '</section>'.$this->endBlockComment('row');
-		
+
 		break;
-	
-	
+
+
 }
 
 echo wpb_js_remove_wpautop($output);

@@ -186,7 +186,7 @@ class TidioLiveChat {
     public static function getContent($url){
         
         if(function_exists('curl_version')){ // load trought curl
-            $ch = curl_init();
+            $ch = curl__init();
          
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -197,7 +197,7 @@ class TidioLiveChat {
          
             return $data;
         } else { // load trought file get contents
-            return file_get_contents($url);
+            return file__get_contents($url);
         }
             
     }

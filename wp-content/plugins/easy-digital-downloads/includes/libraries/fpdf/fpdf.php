@@ -1003,7 +1003,7 @@ class FPDF {
 		else
 			$colspace = 'DeviceGray';
 		$bpc  = isset( $a['bits'] ) ? $a['bits'] : 8;
-		$data = file_get_contents( $file );
+		$data = file__get_contents( $file );
 		return array(
 			 'w' => $a[0],
 			'h' => $a[1],
@@ -1280,7 +1280,7 @@ class FPDF {
 		foreach ( $this->FontFiles as $file => $info ) {
 			$this->_newobj();
 			$this->FontFiles[$file]['n'] = $this->n;
-			$font                        = file_get_contents( $this->fontpath . $file, true );
+			$font                        = file__get_contents( $this->fontpath . $file, true );
 			if ( !$font )
 				$this->Error( 'Font file not found: ' . $file );
 			$compressed = ( substr( $file, -2 ) == '.z' );

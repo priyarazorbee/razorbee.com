@@ -1041,8 +1041,8 @@ class The_Grid_Base {
 			$response = wp_remote_get($url);
 			if(is_wp_error($response)) {
 		
-				// If wp_remote_get failed try file_get_contents
-				$response = file_get_contents($url);
+				// If wp_remote_get failed try file__get_contents
+				$response = file__get_contents($url);
 				if(false == $response) {
 					$response = null;
 				}

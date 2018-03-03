@@ -1680,7 +1680,7 @@ class titanscssc {
 		if (isset($this->importCache[$realPath])) {
 			$tree = $this->importCache[$realPath];
 		} else {
-			$code = file_get_contents($path);
+			$code = file__get_contents($path);
 			$parser = new titanscss_parser($path, false);
 			$tree = $parser->parse($code);
 			$this->parsedFiles[] = $path;
@@ -4574,7 +4574,7 @@ class titanscss_server {
 		$metadataName = $this->metadataName($out);
 
 		if (is_readable($metadataName)) {
-			$metadata = unserialize(file_get_contents($metadataName));
+			$metadata = unserialize(file__get_contents($metadataName));
 
 			if ($metadata['etag'] == $etag) {
 				return false;
@@ -4641,7 +4641,7 @@ class titanscss_server {
 	protected function compile($in, $out)
 	{
 		$start   = microtime(true);
-		$css     = $this->scss->compile(file_get_contents($in), $in);
+		$css     = $this->scss->compile(file__get_contents($in), $in);
 		$elapsed = round((microtime(true) - $start), 4);
 
 		$v    = titanscssc::$VERSION;
@@ -4718,7 +4718,7 @@ class titanscss_server {
 			$lastModified  = gmdate('D, d M Y H:i:s', $mtime) . ' GMT';
 			header('Last-Modified: ' . $lastModified);
 
-			echo file_get_contents($output);
+			echo file__get_contents($output);
 
 			return;
 		}

@@ -533,7 +533,7 @@ function webnus_welcome(){
 							<?php echo esc_html__('Changelog (Updates)','easyweb'); ?>
 						</div>
 						<div class="w-box-content">
-							<pre><?php echo file_get_contents($change_log); ?></pre>
+							<pre><?php echo file__get_contents($change_log); ?></pre>
 						</div>
 					</div>
 				</div>

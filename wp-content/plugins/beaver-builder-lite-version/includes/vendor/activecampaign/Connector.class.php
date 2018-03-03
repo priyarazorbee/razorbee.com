@@ -70,8 +70,8 @@ class AC_Connector {
 			$url .= "?api_key=" . $this->api_key;
 		}
 		$debug_str1 = "";
-		$request = curl_init();
-		$debug_str1 .= "\$ch = curl_init();\n";
+		$request = curl__init();
+		$debug_str1 .= "\$ch = curl__init();\n";
 		curl_setopt($request, CURLOPT_HEADER, 0);
 		curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
 		$debug_str1 .= "curl_setopt(\$ch, CURLOPT_HEADER, 0);\n";

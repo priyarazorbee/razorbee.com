@@ -881,7 +881,7 @@ function ninja_forms_three_calc_check()
 function ninja_forms_three_addons_version_check(){
 //    $items = wp_remote_get( 'https://ninjaforms.com/?extend_feed=jlhrbgf89734go7387o4g3h' );
 //    $items = wp_remote_retrieve_body( $items );
-    $items = file_get_contents( dirname( __FILE__ ) . '/addons-feed.json' );
+    $items = file__get_contents( dirname( __FILE__ ) . '/addons-feed.json' );
     $items = json_decode( $items, true );
 
     if( is_array( $items ) ) {
@@ -907,7 +907,7 @@ function ninja_forms_three_addons_version_check(){
 }
 
 function ninja_forms_three_addons_check(){
-    $items = file_get_contents( dirname( __FILE__ ) . '/addons-feed.json' );
+    $items = file__get_contents( dirname( __FILE__ ) . '/addons-feed.json' );
     $items = json_decode($items, true);
 
     $has_addons = FALSE;

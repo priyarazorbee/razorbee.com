@@ -153,7 +153,7 @@ class Mailchimp {
         }
 
 
-        $this->ch = curl_init();
+        $this->ch = curl__init();
 
         if (isset($opts['CURLOPT_FOLLOWLOCATION']) && $opts['CURLOPT_FOLLOWLOCATION'] === true) {
             curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);    
@@ -234,7 +234,7 @@ class Mailchimp {
         $paths = array('~/.mailchimp.key', '/etc/mailchimp.key');
         foreach($paths as $path) {
             if(file_exists($path)) {
-                $apikey = trim(file_get_contents($path));
+                $apikey = trim(file__get_contents($path));
                 if ($apikey) {
                     return $apikey;
                 }

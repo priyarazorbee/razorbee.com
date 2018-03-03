@@ -245,6 +245,8 @@ class Webnus_Envato {
      */
     public function get_MEC_info($type = 'info')
     {
+
+      return;
         // setting the header for the rest of the api
         $code = $this->get_purchase_code();
         $bearer = 'bearer '.$this->get_bearer();
@@ -258,7 +260,7 @@ class Webnus_Envato {
         elseif($type == 'dl') $verify_url = 'https://api.envato.com/v3/market/buyer/download?purchase_code='.$code;
         else return;
 
-        $ch_verify = curl_init($verify_url);
+        $ch_verify = curl__init($verify_url);
 
         curl_setopt($ch_verify, CURLOPT_HTTPHEADER, $header);
         curl_setopt($ch_verify, CURLOPT_SSL_VERIFYPEER, false);
@@ -318,7 +320,7 @@ class Webnus_Envato {
         else
         {
             // if available in cache, use that
-            return json_decode(file_get_contents($cache_path));
+            return json_decode(file__get_contents($cache_path));
         }
     }
 
@@ -369,7 +371,7 @@ class Webnus_Envato {
     {
         if(empty($url)) return false;
 
-        $ch = curl_init($url);
+        $ch = curl__init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; Envato Marketplace API Wrapper PHP)');
 

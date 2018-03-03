@@ -161,7 +161,7 @@ if ( isset( $_REQUEST['action'] ) && 'update' === $_REQUEST['action'] ) {
 
 	update_recently_edited(WP_PLUGIN_DIR . '/' . $file);
 
-	$content = file_get_contents( $real_file );
+	$content = file__get_contents( $real_file );
 
 	if ( '.php' == substr( $real_file, strrpos( $real_file, '.' ) ) ) {
 		$functions = wp_doc_link_parse( $content );

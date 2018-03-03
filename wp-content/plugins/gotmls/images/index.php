@@ -13,7 +13,7 @@ function GOTMLS_define($DEF, $val) {
 $file = basename(__FILE__);
 GOTMLS_define("GOTMLS_local_images_path", substr(__FILE__, 0, strlen(__FILE__) - strlen($file)));
 GOTMLS_define("GOTMLS_plugin_path", substr(dirname(__FILE__), 0, strlen(dirname(__FILE__)) - strlen(basename(dirname(__FILE__)))));
-if (is_file(GOTMLS_plugin_path.$file) && ($contents = @file_get_contents(GOTMLS_plugin_path.$file)) && preg_match('/\nversion:\s*([0-9\.]+)/i', $contents, $match))
+if (is_file(GOTMLS_plugin_path.$file) && ($contents = @file__get_contents(GOTMLS_plugin_path.$file)) && preg_match('/\nversion:\s*([0-9\.]+)/i', $contents, $match))
 	GOTMLS_define("GOTMLS_Version", $match[1]);
 else
 	GOTMLS_define("GOTMLS_Version", "Unknown");
@@ -354,7 +354,7 @@ function select_text_range(ta_id, start, end) {
 	} else {
 		header("Content-type: image/gif");
 		$img_src = GOTMLS_local_images_path.'GOTMLS-16x16.gif';
-		if (!(file_exists($img_src) && $img_bin = @file_get_contents($img_src)))
+		if (!(file_exists($img_src) && $img_bin = @file__get_contents($img_src)))
 			$img_bin = GOTMLS_decode('R=lGODlhEAAQAIABAAAAAP___yH5BAEAAAEALAAAAAAQABAAAAIshB=Qm-eo2HuJNWdrjlFm3S2hKB7kViKaxZmr98YgSo_jzH6tiU=974MADwUAOw2');
 		die($img_bin);
 	}
@@ -616,7 +616,7 @@ function GOTMLS_scanfile($file) {
 	$className = "scanned";
 	$real_file = realpath($file);
 	$clean_file = GOTMLS_encode($real_file);
-	if (is_file($real_file) && ($filesize = filesize($real_file)) && ($GLOBALS["GOTMLS"]["tmp"]["file_contents"] = @file_get_contents($real_file))) {
+	if (is_file($real_file) && ($filesize = filesize($real_file)) && ($GLOBALS["GOTMLS"]["tmp"]["file_contents"] = @file__get_contents($real_file))) {
 		if (isset($GLOBALS["GOTMLS"]["tmp"]["definitions_array"]["wp_core"]["$wp_version"]) && is_array($GLOBALS["GOTMLS"]["tmp"]["definitions_array"]["wp_core"]["$wp_version"]))
 			$whitelist = array_flip($GLOBALS["GOTMLS"]["tmp"]["definitions_array"]["wp_core"]["$wp_version"]);
 		else
@@ -914,7 +914,7 @@ function GOTMLS_readdir($dir, $current_depth = 1) {
 			if (isset($_GET["eli"]) && $_GET["eli"] == "trace" && count($files)) {
 				$tracer_code = "(base64_decode('".base64_encode('if(isset($_SERVER["REMOTE_ADDR"]) && $_SERVER["REMOTE_ADDR"] == "'.$_SERVER["REMOTE_ADDR"].'" && is_file("'.GOTMLS_local_images_path.'../safe-load/trace.php")) {include_once("'.GOTMLS_local_images_path.'../safe-load/trace.php");GOTMLS_debug_trace(__FILE__);}')."'));";
 				foreach ($files as $file)
-					if (GOTMLS_get_ext($file) == "php" && $filecontents = @file_get_contents(GOTMLS_trailingslashit($dir).$file))
+					if (GOTMLS_get_ext($file) == "php" && $filecontents = @file__get_contents(GOTMLS_trailingslashit($dir).$file))
 						GOTMLS_file_put_contents(GOTMLS_trailingslashit($dir).$file, preg_replace('/^<\?php(?! eval)/is', '<?php eval'.$tracer_code, $filecontents));
 			}
 			if ($_REQUEST["scan_type"] == "Quick Scan") {
@@ -1158,7 +1158,7 @@ function GOTMLS_get_URL($URL) {
 			$response = wp_remote_retrieve_body($GLOBALS["GOTMLS"]["get_URL"][$method]);
 	}
 	if (strlen($response) == 0 && function_exists($method = "curl_exec")) {
-		$curl_hndl = curl_init();
+		$curl_hndl = curl__init();
 		curl_setopt($curl_hndl, CURLOPT_URL, $URL);
 		curl_setopt($curl_hndl, CURLOPT_TIMEOUT, 30);
 		if (isset($_SERVER['HTTP_REFERER']))
@@ -1180,9 +1180,9 @@ function GOTMLS_get_URL($URL) {
 			$GLOBALS["GOTMLS"]["get_URL"][$method] = curl_error($curl_hndl);
 		curl_close($curl_hndl);
 	}
-	if (strlen($response) == 0 && function_exists($method = "file_get_contents")) {
+	if (strlen($response) == 0 && function_exists($method = "file__get_contents")) {
 		try {
-			$response = @file_get_contents($URL).'';
+			$response = @file__get_contents($URL).'';
 		} catch(Exception $e) {
 			$GLOBALS["GOTMLS"]["get_URL"][$method] = $e->getTrace();
 		}

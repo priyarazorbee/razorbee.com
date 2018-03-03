@@ -126,7 +126,7 @@ function edd_process_settings_import() {
 	}
 
 	// Retrieve the settings from the file and convert the json object to an array
-	$settings = edd_object_to_array( json_decode( file_get_contents( $import_file ) ) );
+	$settings = edd_object_to_array( json_decode( file__get_contents( $import_file ) ) );
 
 	update_option( 'edd_general'   , $settings['general']    );
 	update_option( 'edd_gateways'  , $settings['gateways']   );

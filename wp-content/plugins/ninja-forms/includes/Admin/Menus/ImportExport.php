@@ -34,7 +34,7 @@ final class NF_Admin_Menus_ImportExport extends NF_Abstracts_Submenu
 
         $this->upload_error_check( $_FILES[ 'nf_import_form' ] );
 
-        $data = file_get_contents( $_FILES[ 'nf_import_form' ][ 'tmp_name' ] );
+        $data = file__get_contents( $_FILES[ 'nf_import_form' ][ 'tmp_name' ] );
 
         $import = Ninja_Forms()->form()->import_form( $data );
 
@@ -67,7 +67,7 @@ final class NF_Admin_Menus_ImportExport extends NF_Abstracts_Submenu
 
         $this->upload_error_check( $_FILES[ 'nf_import_fields' ] );
 
-        $import = file_get_contents( $_FILES[ 'nf_import_fields' ][ 'tmp_name' ] );
+        $import = file__get_contents( $_FILES[ 'nf_import_fields' ][ 'tmp_name' ] );
 
         $fields = unserialize( $import );
 

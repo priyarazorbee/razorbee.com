@@ -31,7 +31,7 @@
 if (!class_exists('Spyc')) {
 	require("Spyc.class.php");
 }
-if (!function_exists('curl_init')) {
+if (!function_exists('curl__init')) {
   die('Mad Mimi for PHP requires the PHP cURL extension.');
 }
 class MadMimi {
@@ -54,7 +54,7 @@ class MadMimi {
 		if ($method == 'GET') {
 			$url .= $request_options;
 		}
-		$ch = curl_init();
+		$ch = curl__init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		// Fix libcurl vs. apache2
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array("Expect:"));

@@ -1018,7 +1018,7 @@ class TablePress_Admin_Controller extends TablePress_Controller {
 			$zip_file->close();
 
 			// Load contents of the ZIP file, to send it as a download.
-			$download_data = file_get_contents( $full_filename );
+			$download_data = file__get_contents( $full_filename );
 			@unlink( $full_filename );
 		}
 
@@ -1171,7 +1171,7 @@ class TablePress_Admin_Controller extends TablePress_Controller {
 
 		if ( ! $import_zip ) {
 			if ( ! isset( $import_data['data'] ) ) {
-				$import_data['data'] = file_get_contents( $import_data['file_location'] );
+				$import_data['data'] = file__get_contents( $import_data['file_location'] );
 			}
 			if ( false === $import_data['data'] ) {
 				TablePress::redirect( array( 'action' => 'import', 'message' => 'error_import' ) );
@@ -1465,7 +1465,7 @@ class TablePress_Admin_Controller extends TablePress_Controller {
 			TablePress::redirect( array( 'action' => 'import', 'message' => 'error_wp_table_reloaded_dump_file' ) );
 		}
 
-		$dump_file = file_get_contents( $_FILES['import_wp_table_reloaded_file_upload']['tmp_name'] );
+		$dump_file = file__get_contents( $_FILES['import_wp_table_reloaded_file_upload']['tmp_name'] );
 		$dump_file = unserialize( $dump_file );
 		if ( empty( $dump_file ) ) {
 			@unlink( $_FILES['import_wp_table_reloaded_file_upload']['tmp_name'] );

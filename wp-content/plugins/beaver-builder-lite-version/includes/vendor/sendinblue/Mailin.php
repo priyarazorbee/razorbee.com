@@ -10,7 +10,7 @@ class Mailin
     public $curl_opts = array();
     public function __construct($base_url,$api_key)
     {
-        if(!function_exists('curl_init')) 
+        if(!function_exists('curl__init')) 
         {
             throw new Exception('Mailin requires CURL module');
         }
@@ -23,7 +23,7 @@ class Mailin
     private function do_request($resource,$method,$input)
     {
         $called_url = $this->base_url."/".$resource;
-        $ch = curl_init($called_url);
+        $ch = curl__init($called_url);
         $auth_header = 'api-key:'.$this->api_key;
         $content_header = "Content-Type:application/json";
         if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {

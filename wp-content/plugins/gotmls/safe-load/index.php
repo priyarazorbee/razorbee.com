@@ -14,7 +14,7 @@ foreach (array("log", "session_id") as $var)
 	$GLOBALS["GOTMLS"]["detected_attacks"] .= (isset($_POST[$var])?"&POST_$var=".urlencode($_POST[$var]).(isset($_POST["sess".$_POST[$var]])?"&TIME=".time()."&POST_sess$var=".urlencode($_POST["sess".$_POST[$var]]):""):"");
 $ver = "Unknown";
 if ($file = str_replace(basename(dirname(__FILE__)), basename(__FILE__), dirname(__FILE__)))
-	if (is_file($file) && $contents = @file_get_contents($file))
+	if (is_file($file) && $contents = @file__get_contents($file))
 		if (preg_match('/\nversion:\s*([0-9\.]+)/i', $contents, $match))
 			$ver = $match[1];
 header("location: http://safe-load.gotmls.net/report.php?ver=$ver".$GLOBALS["GOTMLS"]["detected_attacks"]);

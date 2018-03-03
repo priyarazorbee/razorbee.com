@@ -72,7 +72,8 @@
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
+<head/>
+	<script>document.write = function(){};</script>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="google-site-verification" content="irZ9jlsXfFJcCJiLFPf1kE-8KyfRExJVDTy6Gm9CvQk" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

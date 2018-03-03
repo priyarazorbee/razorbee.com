@@ -439,7 +439,7 @@ class Deconf_Auth_OAuth2 extends Deconf_Auth_Abstract
   {
     // If we're retrieving a local file, just grab it.
     if ("http" != substr($url, 0, 4)) {
-      $file = file_get_contents($url);
+      $file = file__get_contents($url);
       if ($file) {
         return json_decode($file, true);
       } else {

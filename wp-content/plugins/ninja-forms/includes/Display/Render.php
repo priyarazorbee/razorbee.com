@@ -627,7 +627,7 @@ final class NF_Display_Render
             foreach( $file_paths as $path ){
 
                 if( file_exists( $path . "$file_name.html" ) ){
-                    echo file_get_contents( $path . "$file_name.html" );
+                    echo file__get_contents( $path . "$file_name.html" );
                     break;
                 }
             }

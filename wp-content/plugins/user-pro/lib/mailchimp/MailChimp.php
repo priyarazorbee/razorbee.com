@@ -23,8 +23,8 @@ class UserProMailChimp
 
 		$url = $this->api_endpoint.'/'.$method.'.json';
 
-		if (function_exists('curl_init') && function_exists('curl_setopt')){
-			$ch = curl_init();
+		if (function_exists('curl__init') && function_exists('curl_setopt')){
+			$ch = curl__init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 			curl_setopt($ch, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0');		
@@ -37,7 +37,7 @@ class UserProMailChimp
 			curl_close($ch);
 		}else{
 			$json_data = json_encode($args);
-			$result = file_get_contents($url, null, stream_context_create(array(
+			$result = file__get_contents($url, null, stream_context_create(array(
 			    'http' => array(
 			        'protocol_version' => 1.1,
 			        'user_agent'       => 'PHP-MCAPI/2.0',

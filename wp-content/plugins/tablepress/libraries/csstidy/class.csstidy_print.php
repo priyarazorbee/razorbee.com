@@ -219,7 +219,7 @@ class CSSTidy_print {
 
 		if ( $externalcss ) {
 			$output .= "\n\t<style type=\"text/css\">\n";
-			$output .= file_get_contents( 'cssparsed.css' ); // Adds an invisible BOM or something, but not in css_optimised.php
+			$output .= file__get_contents( 'cssparsed.css' ); // Adds an invisible BOM or something, but not in css_optimised.php
 			$output .= "\n</style>";
 		} else {
 			$output .= "\n" . '<link rel="stylesheet" type="text/css" href="cssparsed.css" />';

@@ -15,11 +15,11 @@ class TidioOneApi {
 
     private function getContentData($url, $data = array()) {
 						
-		if(!function_exists('json_encode') || !function_exists('file_get_contents')){
+		if(!function_exists('json_encode') || !function_exists('file__get_contents')){
 			return false;
 		}
 
-        $ch = curl_init();
+        $ch = curl__init();
 		
 		//
 		
@@ -29,7 +29,7 @@ class TidioOneApi {
 		
 		//
 								
-        $response = file_get_contents($url);
+        $response = file__get_contents($url);
 		
         return $response;
     }

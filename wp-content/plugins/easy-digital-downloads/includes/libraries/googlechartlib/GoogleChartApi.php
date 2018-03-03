@@ -183,7 +183,7 @@ class GoogleChartApi
 		switch ( $this->query_method ) {
 			case self::GET:
 				$url = $this->getUrl(false);
-				$image = file_get_contents($url);
+				$image = file__get_contents($url);
 				break;
 			case self::POST:
 				$image = self::post($this->computeQuery());
@@ -229,7 +229,7 @@ class GoogleChartApi
 			)
 		));
 
-		return file_get_contents(self::BASE_URL, false, $context);
+		return file__get_contents(self::BASE_URL, false, $context);
 	}
 
 	/**

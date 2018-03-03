@@ -130,8 +130,8 @@
 
 			// fsockopen/cURL
 			$posting['fsockopen_curl']['name'] = 'fsockopen/cURL';
-			if ( function_exists( 'fsockopen' ) || function_exists( 'curl_init' ) ) {
-				if ( function_exists( 'fsockopen' ) && function_exists( 'curl_init' )) {
+			if ( function_exists( 'fsockopen' ) || function_exists( 'curl__init' ) ) {
+				if ( function_exists( 'fsockopen' ) && function_exists( 'curl__init' )) {
 					$posting['fsockopen_curl']['note'] = __('Your server has fsockopen and cURL enabled.', 'ninja-forms' );
 				} elseif ( function_exists( 'fsockopen' )) {
 					$posting['fsockopen_curl']['note'] = __( 'Your server has fsockopen enabled, cURL is disabled.', 'ninja-forms' );

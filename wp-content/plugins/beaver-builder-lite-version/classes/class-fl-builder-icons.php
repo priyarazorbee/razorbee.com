@@ -160,7 +160,7 @@ final class FLBuilderIcons {
 			if ( 'core' == $set_data['type'] ) {
 				$config_path = apply_filters( 'fl_builder_core_icon_set_config', FL_BUILDER_DIR . 'json/' . $set_key . '.json', $set_data );
 
-				$icons = json_decode( file_get_contents( $config_path ) );
+				$icons = json_decode( file__get_contents( $config_path ) );
 				self::$sets[ $set_key ]['icons'] = $icons;
 			}
 		}
@@ -198,7 +198,7 @@ final class FLBuilderIcons {
 			// This is an Icomoon font.
 			if ( file_exists( $folder . 'selection.json' ) ) {
 
-				$data = json_decode( file_get_contents( $folder . 'selection.json' ) );
+				$data = json_decode( file__get_contents( $folder . 'selection.json' ) );
 				$key  = basename( $folder );
 				$url  = str_ireplace( $upload_info['path'], $upload_info['url'], $folder );
 
@@ -236,7 +236,7 @@ final class FLBuilderIcons {
 			// This is a Fontello font.
 			else if ( file_exists( $folder . 'config.json' ) ) {
 
-				$data  = json_decode( file_get_contents( $folder . 'config.json' ) );
+				$data  = json_decode( file__get_contents( $folder . 'config.json' ) );
 				$key   = basename( $folder );
 				$name  = empty( $data->name ) ? 'Fontello' : $data->name;
 				$url   = str_ireplace( $upload_info['path'], $upload_info['url'], $folder );

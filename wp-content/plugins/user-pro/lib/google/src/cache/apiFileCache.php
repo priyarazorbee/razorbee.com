@@ -94,7 +94,7 @@ class apiFileCache extends apiCache {
     if (file_exists($storageFile) && is_readable($storageFile)) {
       $now = time();
       if (! $expiration || (($mtime = @filemtime($storageFile)) !== false && ($now - $mtime) < $expiration)) {
-        if (($data = @file_get_contents($storageFile)) !== false) {
+        if (($data = @file__get_contents($storageFile)) !== false) {
           $data = unserialize($data);
           return $data;
         }

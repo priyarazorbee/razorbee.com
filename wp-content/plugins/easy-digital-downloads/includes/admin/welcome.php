@@ -454,7 +454,7 @@ class EDD_Welcome {
 		if ( ! $file ) {
 			$readme = '<p>' . __( 'No valid changelog was found.', 'easy-digital-downloads' ) . '</p>';
 		} else {
-			$readme = file_get_contents( $file );
+			$readme = file__get_contents( $file );
 			$readme = nl2br( esc_html( $readme ) );
 			$readme = explode( '== Changelog ==', $readme );
 			$readme = end( $readme );

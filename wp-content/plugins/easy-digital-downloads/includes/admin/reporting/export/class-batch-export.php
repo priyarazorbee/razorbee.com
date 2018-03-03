@@ -236,7 +236,7 @@ class EDD_Batch_Export extends EDD_Export {
 				$this->is_writable = false;
 			}
 
-			$file = @file_get_contents( $this->file );
+			$file = @file__get_contents( $this->file );
 
 		} else {
 

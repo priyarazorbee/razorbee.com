@@ -199,7 +199,7 @@ class SendyPHP
         //build a query using the $content
         $postdata = http_build_query($content);
 
-        $ch = curl_init($this->installation_url .'/'. $type);
+        $ch = curl__init($this->installation_url .'/'. $type);
 
         // Settings to disable SSL verification for testing (leave commented for production use)
         // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);

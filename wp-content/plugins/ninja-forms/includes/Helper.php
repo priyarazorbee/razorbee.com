@@ -265,7 +265,7 @@ final class WPN_Helper
             $ctx = stream_context_create( array( 'ssl' => array(
                 'capture_session_meta' => TRUE
             ) ) );
-            $html = file_get_contents( 'https://ninjaforms.com/', FALSE, $ctx );
+            $html = file__get_contents( 'https://ninjaforms.com/', FALSE, $ctx );
             $meta = stream_context_get_options( $ctx );
             $tls = $meta[ 'ssl' ][ 'session_meta' ][ 'protocol' ];
             unset( $ctx );

@@ -99,7 +99,7 @@ class apiCurlIO implements apiIO {
       }
     }
 
-    $ch = curl_init();
+    $ch = curl__init();
     curl_setopt_array($ch, self::$DEFAULT_CURL_PARAMS);
     curl_setopt($ch, CURLOPT_URL, $request->getUrl());
     if ($request->getPostBody()) {

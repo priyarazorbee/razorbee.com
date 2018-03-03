@@ -116,7 +116,7 @@ class ConvertKit {
 	*/
 	public function make_request($request, $method = 'GET', $args = array()) {
 		$url = $this->build_request_url($request, $args);
-		$ch = curl_init();
+		$ch = curl__init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HEADER, false);

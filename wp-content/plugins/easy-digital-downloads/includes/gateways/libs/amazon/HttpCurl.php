@@ -50,7 +50,7 @@ class HttpCurl implements HttpCurlInterface
 
     private  function commonCurlParams($url,$userAgent)
     {
-        $ch = curl_init();
+        $ch = curl__init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_PORT, 443);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);

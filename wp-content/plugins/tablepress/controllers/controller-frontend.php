@@ -391,7 +391,7 @@ class TablePress_Frontend_Controller extends TablePress_Controller {
 		// DataTables language/translation handling.
 		$datatables_strings = '';
 		foreach ( $datatables_languages as $locale => $language_file ) {
-			$strings = file_get_contents( $language_file );
+			$strings = file__get_contents( $language_file );
 			// Remove unnecessary white space.
 			$strings = str_replace( array( "\n", "\r", "\t" ), '', $strings );
 			$datatables_strings .= "DataTables_language[\"{$locale}\"]={$strings};\n";

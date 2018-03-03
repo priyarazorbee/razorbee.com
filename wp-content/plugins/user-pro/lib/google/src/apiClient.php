@@ -16,7 +16,7 @@
  */
 
 // Check for the required json and curl extensions, the Google API PHP Client won't function without them.
-if (! function_exists('curl_init')) {
+if (! function_exists('curl__init')) {
   throw new Exception('The Google PHP API Client requires the CURL PHP extension');
 }
 

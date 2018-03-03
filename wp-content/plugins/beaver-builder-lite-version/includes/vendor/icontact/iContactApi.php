@@ -356,7 +356,7 @@ class iContactApi {
 		// Set the URI that we will be calling
 		$sApiUrl    = (string) "{$this->getUrl()}{$sResource}";
 		// Initialize the cURL handle
-		$rHandle     = curl_init();
+		$rHandle     = curl__init();
 		// Give our handle headers
 		curl_setopt($rHandle, CURLOPT_HTTPHEADER, $this->getHeaders());
 		// Tell our handle that we 

@@ -48,6 +48,7 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
          * @access      public
          * @return      void
          */
+
         public function __construct( $parent ) {
 
             $this->parent = $parent;
@@ -91,7 +92,6 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
             //Adds Importer section to panel
             $this->add_importer_section();
 
-
         }
 
         /**
@@ -101,12 +101,11 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
          * @return array list of files for demos
          */
         public function demoFiles() {
-
             $this->filesystem = $this->parent->filesystem->execute( 'object' );
             $dir_array = $this->filesystem->dirlist( $this->demo_data_dir, false, true );
 
             if ( !empty( $dir_array ) && is_array( $dir_array ) ) {
-               
+
                 uksort( $dir_array, 'strcasecmp' );
                 return $dir_array;
 

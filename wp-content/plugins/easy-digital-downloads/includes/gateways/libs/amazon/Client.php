@@ -104,7 +104,7 @@ class Client implements ClientInterface
 	{
 	if(file_exists($config))
 	{
-		$jsonString  = file_get_contents($config);
+		$jsonString  = file__get_contents($config);
 		$configArray = json_decode($jsonString, true);
 
 		$jsonError = json_last_error();

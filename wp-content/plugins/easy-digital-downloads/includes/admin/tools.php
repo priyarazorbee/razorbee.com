@@ -1028,7 +1028,7 @@ function edd_tools_import_export_process_import() {
 	}
 
 	// Retrieve the settings from the file and convert the json object to an array
-	$settings = edd_object_to_array( json_decode( file_get_contents( $import_file ) ) );
+	$settings = edd_object_to_array( json_decode( file__get_contents( $import_file ) ) );
 
 	update_option( 'edd_settings', $settings );
 
@@ -1341,7 +1341,7 @@ function edd_tools_sysinfo_get() {
 
 	// PHP extensions and such
 	$return .= "\n" . '-- PHP Extensions' . "\n\n";
-	$return .= 'cURL:                     ' . ( function_exists( 'curl_init' ) ? 'Supported' : 'Not Supported' ) . "\n";
+	$return .= 'cURL:                     ' . ( function_exists( 'curl__init' ) ? 'Supported' : 'Not Supported' ) . "\n";
 	$return .= 'fsockopen:                ' . ( function_exists( 'fsockopen' ) ? 'Supported' : 'Not Supported' ) . "\n";
 	$return .= 'SOAP Client:              ' . ( class_exists( 'SoapClient' ) ? 'Installed' : 'Not Installed' ) . "\n";
 	$return .= 'Suhosin:                  ' . ( extension_loaded( 'suhosin' ) ? 'Installed' : 'Not Installed' ) . "\n";

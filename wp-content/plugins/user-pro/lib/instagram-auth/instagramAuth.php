@@ -69,7 +69,7 @@ function getAccessToken() {
     // Access Token request
     
     $url = 'https://api.instagram.com/oauth/access_token';
-    $ch = curl_init();
+    $ch = curl__init();
     curl_setopt($ch,CURLOPT_URL,$url);
     curl_setopt($ch,CURLOPT_POSTFIELDS,$params);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -99,7 +99,7 @@ function fetch($method) {
  
  
     // Hocus Pocus
-    $response = file_get_contents($url, false, $context);
+    $response = file__get_contents($url, false, $context);
     $response = json_decode($response);
     $response = $response->data;
     return $response;

@@ -98,7 +98,7 @@ class NF_WPCLI_NinjaFormsCommand extends WP_CLI_Command
 
     private function peeking_ninja()
     {
-        $output = file_get_contents( Ninja_Forms::$dir . 'includes/Templates/wpcli-header-art.txt' );
+        $output = file__get_contents( Ninja_Forms::$dir . 'includes/Templates/wpcli-header-art.txt' );
         WP_CLI::line( $output );
     }
 

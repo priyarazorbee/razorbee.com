@@ -152,7 +152,7 @@ return $tg_icons;
 
 /*$icons = '';
 $pattern = '/\.(tg-icon-(?:\w+(?:-)?)+):before\s+{\s*content:\s*"(.+)";\s+}/';
-//$subject = file_get_contents(TG_PLUGIN_URL . 'frontend/assets/css/font-awesome.min.css');
+//$subject = file__get_contents(TG_PLUGIN_URL . 'frontend/assets/css/font-awesome.min.css');
 preg_match_all($pattern, $icons, $matches, PREG_SET_ORDER);
 $icons = array();
 foreach($matches as $match){
