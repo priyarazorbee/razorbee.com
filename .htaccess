@@ -1,3 +1,4 @@
+SetEnv MAGICK_THREAD_LIMIT 1
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
