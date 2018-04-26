@@ -635,12 +635,12 @@ class getid3_lib
 		if (!self::intValueSupported($offset + $length)) {
 			throw new Exception('cannot copy file portion, it extends beyond the '.round(PHP_INT_MAX / 1073741824).'GB limit');
 		}
-		if (is_readable($filename_source) && is_file($filename_source) && ($fp_src = fopen($filename_source, 'rb'))) {
-			if (($fp_dest = fopen($filename_dest, 'wb'))) {
+		if (is_readable($filename_source) && is_file($filename_source) && ($fp_src = f_open($filename_source, 'rb'))) {
+			if (($fp_dest = f_open($filename_dest, 'wb'))) {
 				if (fseek($fp_src, $offset) == 0) {
 					$byteslefttowrite = $length;
 					while (($byteslefttowrite > 0) && ($buffer = fread($fp_src, min($byteslefttowrite, getID3::FREAD_BUFFER_SIZE)))) {
-						$byteswritten = fwrite($fp_dest, $buffer, $byteslefttowrite);
+						$byteswritten = f_write($fp_dest, $buffer, $byteslefttowrite);
 						$byteslefttowrite -= $byteswritten;
 					}
 					return true;
@@ -1161,7 +1161,7 @@ class getid3_lib
 		}
 		$GetDataImageSize = false;
 		if ($tempfilename = tempnam($tempdir, 'gI3')) {
-			if (is_writable($tempfilename) && is_file($tempfilename) && ($tmp = fopen($tempfilename, 'wb'))) {
+			if (is_writable($tempfilename) && is_file($tempfilename) && ($tmp = f_open($tempfilename, 'wb'))) {
 				fwrite($tmp, $imgData);
 				fclose($tmp);
 				$GetDataImageSize = @getimagesize($tempfilename, $imageinfo);
@@ -1284,7 +1284,7 @@ class getid3_lib
 		$line_count = $end - $begin - 7;
 
 		// Open php file
-		$fp = fopen($file, 'r');
+		$fp = f_open($file, 'r');
 
 		// Discard $begin lines
 		for ($i = 0; $i < ($begin + 3); $i++) {

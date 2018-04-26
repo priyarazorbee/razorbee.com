@@ -200,7 +200,7 @@ class WC_Log_Handler_File extends WC_Log_Handler {
 		}
 
 		if ( $this->open( $handle ) && is_resource( $this->handles[ $handle ] ) ) {
-			$result = fwrite( $this->handles[ $handle ], $entry . PHP_EOL );
+			$result = f_write( $this->handles[ $handle ], $entry . PHP_EOL );
 		} else {
 			$this->cache_log( $entry, $handle );
 		}

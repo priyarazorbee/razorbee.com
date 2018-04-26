@@ -397,7 +397,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 			}
 
 			// GET request - write it to the supplied filename
-			$out_fp = fopen( $file_path, 'w' );
+			$out_fp = f_open( $file_path, 'w' );
 			if ( ! $out_fp ) {
 				return $headers;
 			}

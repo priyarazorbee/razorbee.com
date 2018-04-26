@@ -194,7 +194,7 @@ class CS_REST_SocketWrapper {
     }
 
     function write($data) {
-        fwrite($this->socket, $data);
+        f_write($this->socket, $data);
     }
 
     function read() {

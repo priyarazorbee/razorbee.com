@@ -407,7 +407,7 @@ class iContactApi {
 					curl_setopt($rHandle, CURLOPT_CUSTOMREQUEST, "PUT");
 					curl_setopt($rHandle, CURLOPT_POSTFIELDS, $mPostData);
 				} else {
-					$rFileContentHandle = fopen($mPostData, 'r');
+					$rFileContentHandle = f_open($mPostData, 'r');
 					if ($rFileContentHandle === false) {
 						$this->addError('A non-existant file was specified for POST data, or the file could not be opened.');
 					} else {

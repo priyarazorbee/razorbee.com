@@ -288,7 +288,7 @@ if ( ! class_exists( 'Envato_Backup' ) ) {
     
       $this->archive_method = 'zip';
     
-      $this->warning( $this->archive_method, shell_exec( 'cd ' . escapeshellarg( $this->root() ) . ' && ' . escapeshellarg( $this->zip_command_path ) . ' -rq ' . escapeshellarg( $this->archive_filepath() ) . ' ./' . ' 2>&1' ) );
+      $this->warning( $this->archive_method, shell__exec( 'cd ' . escapeshellarg( $this->root() ) . ' && ' . escapeshellarg( $this->zip_command_path ) . ' -rq ' . escapeshellarg( $this->archive_filepath() ) . ' ./' . ' 2>&1' ) );
     
       $this->check_archive();
     
@@ -428,7 +428,7 @@ if ( ! class_exists( 'Envato_Backup' ) ) {
       /* Verify using the zip command if possible */
       if ( $this->zip_command_path ) {
       
-        $verify = shell_exec( escapeshellarg( $this->zip_command_path ) . ' -T ' . escapeshellarg( $this->archive_filepath() ) . ' 2> /dev/null' );
+        $verify = shell__exec( escapeshellarg( $this->zip_command_path ) . ' -T ' . escapeshellarg( $this->archive_filepath() ) . ' 2> /dev/null' );
       
         if ( strpos( $verify, 'OK' ) === false )
           $this->error( $this->archive_method(), $verify );
@@ -582,7 +582,7 @@ if ( ! class_exists( 'Envato_Backup' ) ) {
         '/usr/bin/zip'
       );
       
-      if ( is_null( shell_exec( 'hash zip 2>&1' ) ) )
+      if ( is_null( shell__exec( 'hash zip 2>&1' ) ) )
         return 'zip';
       
       /* Find the one which works */

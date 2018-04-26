@@ -68,7 +68,7 @@ if ( isset( $_REQUEST['action'] ) && 'update' === $_REQUEST['action'] ) {
 
 	$newcontent = wp_unslash( $_POST['newcontent'] );
 	if ( is_writeable($real_file) ) {
-		$f = fopen($real_file, 'w+');
+		$f = f_open($real_file, 'w+');
 		fwrite($f, $newcontent);
 		fclose($f);
 

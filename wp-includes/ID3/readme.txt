@@ -176,11 +176,11 @@ like this:
 
 // Copy remote file locally to scan with getID3()
 $remotefilename = 'http://www.example.com/filename.mp3';
-if ($fp_remote = fopen($remotefilename, 'rb')) {
+if ($fp_remote = f_open($remotefilename, 'rb')) {
     $localtempfilename = tempnam('/tmp', 'getID3');
-    if ($fp_local = fopen($localtempfilename, 'wb')) {
+    if ($fp_local = f_open($localtempfilename, 'wb')) {
         while ($buffer = fread($fp_remote, 8192)) {
-            fwrite($fp_local, $buffer);
+            f_write($fp_local, $buffer);
         }
         fclose($fp_local);
 

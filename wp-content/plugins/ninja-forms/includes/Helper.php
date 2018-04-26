@@ -257,7 +257,7 @@ final class WPN_Helper
 
         // If we have a php version of 7.0 or higher...
         if( version_compare( $php_ver, '7.0.0', '>=' ) ) {
-            $meta = stream_get_meta_data( fopen( 'https://ninjaforms.com/', 'r' ) );
+            $meta = stream_get_meta_data( f_open( 'https://ninjaforms.com/', 'r' ) );
             $tls = $meta[ 'crypto' ][ 'protocol' ];            
         }
         // Otherwise (php version between 5.6 and 7.0)...

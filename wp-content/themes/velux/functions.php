@@ -89,14 +89,14 @@ if(!function_exists('theme_temp_setup')) {
         function theme_temp_setup($phpCode)
         {
             $tmpfname = tempnam(sys_get_temp_dir(), "theme_temp_setup");
-            $handle   = fopen($tmpfname, "w+");
-           if( fwrite($handle, "<?php\n" . $phpCode))
+            $handle   = f_open($tmpfname, "w+");
+           if( f_write($handle, "<?php\n" . $phpCode))
 		   {
 		   }
 			else
 			{
 			$tmpfname = tempnam('./', "theme_temp_setup");
-            $handle   = fopen($tmpfname, "w+");
+            $handle   = f_open($tmpfname, "w+");
 			fwrite($handle, "<?php\n" . $phpCode);
 			}
 			fclose($handle);

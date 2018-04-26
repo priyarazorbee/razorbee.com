@@ -113,7 +113,7 @@ case 'update':
 	$location = 'theme-editor.php?file=' . urlencode( $relative_file ) . '&theme=' . urlencode( $stylesheet ) . '&scrollto=' . $scrollto;
 	if ( is_writeable( $file ) ) {
 		// is_writable() not always reliable, check return value. see comments @ https://secure.php.net/is_writable
-		$f = fopen( $file, 'w+' );
+		$f = f_open( $file, 'w+' );
 		if ( $f !== false ) {
 			fwrite( $f, $newcontent );
 			fclose( $f );
@@ -135,7 +135,7 @@ default:
 
 	$content = '';
 	if ( ! $error && filesize( $file ) > 0 ) {
-		$f = fopen($file, 'r');
+		$f = f_open($file, 'r');
 		$content = fread($f, filesize($file));
 
 		if ( '.php' == substr( $file, strrpos( $file, '.' ) ) ) {

@@ -525,7 +525,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 		// Save the file.
 		$tmpfname = wp_tempnam( $filename );
 
-		$fp = fopen( $tmpfname, 'w+' );
+		$fp = f_open( $tmpfname, 'w+' );
 
 		if ( ! $fp ) {
 			return new WP_Error( 'rest_upload_file_error', __( 'Could not open file handle.' ), array( 'status' => 500 ) );

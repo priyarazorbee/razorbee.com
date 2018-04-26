@@ -72,7 +72,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 
 		$data_length = strlen( $contents );
 
-		$bytes_written = fwrite( $fp, $contents );
+		$bytes_written = f_write( $fp, $contents );
 
 		reset_mbstring_encoding();
 

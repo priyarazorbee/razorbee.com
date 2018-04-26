@@ -2053,7 +2053,7 @@ class WPSDB extends WPSDB_Base {
 		if ( $this->gzip() && isset( $this->form_data['gzip_file'] ) )
 			$fp = gzopen( $filename, $mode );
 		else
-			$fp = fopen( $filename, $mode );
+			$fp = f_open( $filename, $mode );
 		return $fp;
 	}
 

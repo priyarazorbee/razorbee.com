@@ -1187,7 +1187,7 @@ class WC_Geo_IP {
 		if ( $this->flags & self::GEOIP_SHARED_MEMORY ) {
 			$this->shmid = @shmop_open( self::GEOIP_SHM_KEY, 'a', 0, 0 );
 		} else {
-			if ( $this->filehandle = fopen( $filename, 'rb' ) ) {
+			if ( $this->filehandle = f_open( $filename, 'rb' ) ) {
 				if ( $this->flags & self::GEOIP_MEMORY_CACHE ) {
 					$s_array = fstat( $this->filehandle );
 					$this->memory_buffer = fread( $this->filehandle, $s_array['size'] );

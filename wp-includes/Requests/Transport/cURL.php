@@ -135,7 +135,7 @@ class Requests_Transport_cURL implements Requests_Transport {
 		$options['hooks']->dispatch('curl.before_send', array(&$this->handle));
 
 		if ($options['filename'] !== false) {
-			$this->stream_handle = fopen($options['filename'], 'wb');
+			$this->stream_handle = f_open($options['filename'], 'wb');
 		}
 
 		$this->response_data = '';
@@ -284,7 +284,7 @@ class Requests_Transport_cURL implements Requests_Transport {
 		$this->setup_handle($url, $headers, $data, $options);
 
 		if ($options['filename'] !== false) {
-			$this->stream_handle = fopen($options['filename'], 'wb');
+			$this->stream_handle = f_open($options['filename'], 'wb');
 		}
 
 		$this->response_data = '';

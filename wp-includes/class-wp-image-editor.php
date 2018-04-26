@@ -422,7 +422,7 @@ abstract class WP_Image_Editor {
 		if ( $result && $stream ) {
 			$contents = ob_get_contents();
 
-			$fp = fopen( $filename, 'w' );
+			$fp = f_open( $filename, 'w' );
 
 			if ( ! $fp )
 				return false;

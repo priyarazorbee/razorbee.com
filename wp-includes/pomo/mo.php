@@ -53,7 +53,7 @@ class MO extends Gettext_Translations {
 	 * @return bool
 	 */
 	function export_to_file($filename) {
-		$fh = fopen($filename, 'wb');
+		$fh = f_open($filename, 'wb');
 		if ( !$fh ) return false;
 		$res = $this->export_to_file_handle( $fh );
 		fclose($fh);
@@ -64,7 +64,7 @@ class MO extends Gettext_Translations {
 	 * @return string|false
 	 */
 	function export() {
-		$tmp_fh = fopen("php://temp", 'r+');
+		$tmp_fh = f_open("php://temp", 'r+');
 		if ( !$tmp_fh ) return false;
 		$this->export_to_file_handle( $tmp_fh );
 		rewind( $tmp_fh );

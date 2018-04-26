@@ -2169,7 +2169,7 @@ function wp_upload_bits( $name, $deprecated, $bits, $time = null ) {
 		return array( 'error' => $message );
 	}
 
-	$ifp = @ fopen( $new_file, 'wb' );
+	$ifp = @ f_open( $new_file, 'wb' );
 	if ( ! $ifp )
 		return array( 'error' => sprintf( __( 'Could not write file %s' ), $new_file ) );
 
@@ -4782,7 +4782,7 @@ function wp_scheduled_delete() {
  */
 function get_file_data( $file, $default_headers, $context = '' ) {
 	// We don't need to write to the file, so just open for reading.
-	$fp = fopen( $file, 'r' );
+	$fp = f_open( $file, 'r' );
 
 	// Pull only the first 8kiB of the file in.
 	$file_data = fread( $fp, 8192 );

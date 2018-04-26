@@ -1719,7 +1719,7 @@ class getid3_riff extends getid3_handler {
 		$info = &$this->getid3->info;
 		if ($RIFFdata) {
 			$tempfile = tempnam(GETID3_TEMP_DIR, 'getID3');
-			$fp_temp  = fopen($tempfile, 'wb');
+			$fp_temp  = f_open($tempfile, 'wb');
 			$RIFFdataLength = strlen($RIFFdata);
 			$NewLengthString = getid3_lib::LittleEndian2String($RIFFdataLength, 4);
 			for ($i = 0; $i < 4; $i++) {

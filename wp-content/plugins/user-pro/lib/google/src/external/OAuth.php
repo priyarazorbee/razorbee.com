@@ -107,7 +107,7 @@ class apiClientOAuthSignatureMethod_RSA_SHA1 extends apiClientOAuthSignatureMeth
 
     // hacked in
     if ($privKey == '') {
-      $fp = fopen($GLOBALS['PRIV_KEY_FILE'], "r");
+      $fp = f_open($GLOBALS['PRIV_KEY_FILE'], "r");
       $privKey = fread($fp, 8192);
       fclose($fp);
     }

@@ -129,7 +129,7 @@ class WC_Tax_Rate_Importer extends WP_Importer {
 
 		$loop = 0;
 
-		if ( ( $handle = fopen( $file, "r" ) ) !== false ) {
+		if ( ( $handle = f_open( $file, "r" ) ) !== false ) {
 
 			$header = fgetcsv( $handle, 0, $this->delimiter );
 

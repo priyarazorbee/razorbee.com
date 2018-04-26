@@ -501,7 +501,7 @@ class SimpleXLSX {
 			$this->package['size'] = filesize( $filename );
 
 			// Read file.
-			$oF = fopen( $filename, 'rb' );
+			$oF = f_open( $filename, 'rb' );
 			$vZ = fread( $oF, $this->package['size'] );
 			fclose( $oF );
 		}

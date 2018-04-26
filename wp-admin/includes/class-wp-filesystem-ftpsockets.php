@@ -121,7 +121,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 
 		$temp = wp_tempnam( $file );
 
-		if ( ! $temphandle = fopen( $temp, 'w+' ) ) {
+		if ( ! $temphandle = f_open( $temp, 'w+' ) ) {
 			unlink( $temp );
 			return false;
 		}
@@ -178,7 +178,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 		// The FTP class uses string functions internally during file download/upload
 		mbstring_binary_safe_encoding();
 
-		$bytes_written = fwrite( $temphandle, $contents );
+		$bytes_written = f_write( $temphandle, $contents );
 		if ( false === $bytes_written || $bytes_written != strlen( $contents ) ) {
 			fclose( $temphandle );
 			unlink( $temp );

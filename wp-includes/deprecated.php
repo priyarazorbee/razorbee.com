@@ -3663,7 +3663,7 @@ function wp_get_http( $url, $file_path = false, $red = 1 ) {
 		return $headers;
 
 	// GET request - write it to the supplied filename
-	$out_fp = fopen($file_path, 'w');
+	$out_fp = f_open($file_path, 'w');
 	if ( !$out_fp )
 		return $headers;
 

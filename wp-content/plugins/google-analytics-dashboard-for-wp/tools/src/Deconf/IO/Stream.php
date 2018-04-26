@@ -127,7 +127,7 @@ class Deconf_IO_Stream extends Deconf_IO_Abstract
 
     // START - error trap.
     set_error_handler(array($this, 'trapError'));
-    $fh = fopen($url, 'r', false, $context);
+    $fh = f_open($url, 'r', false, $context);
     restore_error_handler();
     // END - error trap.
 

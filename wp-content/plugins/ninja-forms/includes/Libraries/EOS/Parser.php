@@ -387,7 +387,7 @@ class Parser {
         $infix = preg_replace('/([\d])([eE])(-?\d)/', '$1*10^$3', $infix);
 
         if(Parser::$debug) {
-            fwrite($hand, "$infix\n");
+            f_write($hand, "$infix\n");
         }
 
         // Finds all the 'functions' within the equation and calculates them
@@ -466,7 +466,7 @@ class Parser {
             }
 
             if(Parser::$debug)
-                fwrite($hand, "{$match[1]} || {$match[3]}\n");
+                f_write($hand, "{$match[1]} || {$match[3]}\n");
             // Ensure that the variable has an operator or something of that sort in front and back - if it doesn't, add an implied '*'
             if((!in_array($match[1], array_merge($this->ST, $this->ST1, $this->ST2, $this->SEP['open'])) && $match[1] != "") || is_numeric($match[1])) //$this->SEP['close'] removed
                 $front = "*";

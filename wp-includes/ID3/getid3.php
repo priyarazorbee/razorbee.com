@@ -260,8 +260,8 @@ class getID3
 			$filename = preg_replace('#(.+)'.preg_quote(DIRECTORY_SEPARATOR).'{2,}#U', '\1'.DIRECTORY_SEPARATOR, $filename);
 
 			// open local file
-			//if (is_readable($filename) && is_file($filename) && ($this->fp = fopen($filename, 'rb'))) { // see http://www.getid3.org/phpBB3/viewtopic.php?t=1720
-			if ((is_readable($filename) || file_exists($filename)) && is_file($filename) && ($this->fp = fopen($filename, 'rb'))) {
+			//if (is_readable($filename) && is_file($filename) && ($this->fp = f_open($filename, 'rb'))) { // see http://www.getid3.org/phpBB3/viewtopic.php?t=1720
+			if ((is_readable($filename) || file_exists($filename)) && is_file($filename) && ($this->fp = f_open($filename, 'rb'))) {
 				// great
 			} else {
 				$errormessagelist = array();
@@ -1747,7 +1747,7 @@ abstract class getid3_handler {
 				$dest = $dir.DIRECTORY_SEPARATOR.$name.($image_mime ? '.'.getid3_lib::ImageExtFromMime($image_mime) : '');
 
 				// create dest file
-				if (($fp_dest = fopen($dest, 'wb')) == false) {
+				if (($fp_dest = f_open($dest, 'wb')) == false) {
 					throw new Exception('failed to create file '.$dest);
 				}
 
@@ -1756,7 +1756,7 @@ abstract class getid3_handler {
 				$buffersize = ($this->data_string_flag ? $length : $this->getid3->fread_buffer_size());
 				$bytesleft = $length;
 				while ($bytesleft > 0) {
-					if (($buffer = $this->fread(min($buffersize, $bytesleft))) === false || ($byteswritten = fwrite($fp_dest, $buffer)) === false || ($byteswritten === 0)) {
+					if (($buffer = $this->fread(min($buffersize, $bytesleft))) === false || ($byteswritten = f_write($fp_dest, $buffer)) === false || ($byteswritten === 0)) {
 						throw new Exception($buffer === false ? 'not enough data to read' : 'failed to write to destination file, may be not enough disk space');
 					}
 					$bytesleft -= $byteswritten;

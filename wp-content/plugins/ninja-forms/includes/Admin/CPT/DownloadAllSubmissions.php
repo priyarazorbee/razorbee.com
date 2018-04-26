@@ -79,7 +79,7 @@ class NF_Admin_CPT_DownloadAllSubmissions extends NF_Step_Processing {
         if ( is_array( $subs_results ) && ! empty( $subs_results ) ) {
             $upload_dir = wp_upload_dir();
             $file_path = trailingslashit( $upload_dir['path'] ) . $this->args['filename'] . '.csv';
-            $myfile = fopen( $file_path, 'a' ) or die( 'Unable to open file!' );
+            $myfile = f_open( $file_path, 'a' ) or die( 'Unable to open file!' );
             $x = 0;
             $export = '';
 
@@ -92,7 +92,7 @@ class NF_Admin_CPT_DownloadAllSubmissions extends NF_Step_Processing {
                 $export = substr( $export, strpos( $export, PHP_EOL ) + 1 );
             }
 
-            fwrite( $myfile, $export );
+            f_write( $myfile, $export );
             fclose( $myfile );
         }
 

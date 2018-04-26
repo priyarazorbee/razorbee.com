@@ -322,7 +322,7 @@ class NF_Notification_Email extends NF_Notification_Base_Type
 
 			// create temporary file
 			$path = tempnam( $path, 'Sub' );
-			$temp_file = fopen( $path, 'r+' );
+			$temp_file = f_open( $path, 'r+' );
 
 			// write to temp file
 			fwrite( $temp_file, $csv_content );

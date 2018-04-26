@@ -142,7 +142,7 @@ class POMO_FileReader extends POMO_Reader {
 	 */
 	function __construct( $filename ) {
 		parent::POMO_Reader();
-		$this->_f = fopen($filename, 'rb');
+		$this->_f = f_open($filename, 'rb');
 	}
 
 	/**

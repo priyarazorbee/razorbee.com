@@ -97,7 +97,7 @@ class Deconf_Cache_File extends Deconf_Cache_Abstract
       // We serialize the whole request object, since we don't only want the
       // responseContent but also the postBody used, headers, size, etc.
       $data = serialize($value);
-      $result = fwrite($this->fh, $data);
+      $result = f_write($this->fh, $data);
       $this->unlock($storageFile);
 
       $this->client->getLogger()->debug(
@@ -178,7 +178,7 @@ class Deconf_Cache_File extends Deconf_Cache_Abstract
   private function acquireLock($type, $storageFile)
   {
     $mode = $type == LOCK_EX ? "w" : "r";
-    $this->fh = fopen($storageFile, $mode);
+    $this->fh = f_open($storageFile, $mode);
     if (!$this->fh) {
       $this->client->getLogger()->error(
           'Failed to open file during lock acquisition',

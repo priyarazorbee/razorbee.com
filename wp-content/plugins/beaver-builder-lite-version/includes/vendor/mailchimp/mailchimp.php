@@ -202,7 +202,7 @@ class Mailchimp {
         $start = microtime(true);
         $this->log('Call to ' . $this->root . $url . '.json: ' . $params);
         if($this->debug) {
-            $curl_buffer = fopen('php://memory', 'w+');
+            $curl_buffer = f_open('php://memory', 'w+');
             curl_setopt($ch, CURLOPT_STDERR, $curl_buffer);
         }
 

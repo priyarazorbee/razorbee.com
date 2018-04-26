@@ -41,13 +41,13 @@ class Text_Diff_Engine_shell {
         // Execute gnu diff or similar to get a standard diff file.
         $from_file = tempnam($temp_dir, 'Text_Diff');
         $to_file = tempnam($temp_dir, 'Text_Diff');
-        $fp = fopen($from_file, 'w');
-        fwrite($fp, implode("\n", $from_lines));
+        $fp = f_open($from_file, 'w');
+        f_write($fp, implode("\n", $from_lines));
         fclose($fp);
-        $fp = fopen($to_file, 'w');
-        fwrite($fp, implode("\n", $to_lines));
+        $fp = f_open($to_file, 'w');
+        f_write($fp, implode("\n", $to_lines));
         fclose($fp);
-        $diff = shell_exec($this->_diffCommand . ' ' . $from_file . ' ' . $to_file);
+        $diff = shell__exec($this->_diffCommand . ' ' . $from_file . ' ' . $to_file);
         unlink($from_file);
         unlink($to_file);
 

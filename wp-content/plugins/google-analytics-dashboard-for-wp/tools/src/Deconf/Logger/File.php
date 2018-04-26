@@ -86,7 +86,7 @@ class Deconf_Logger_File extends Deconf_Logger_Abstract
       flock($this->file, LOCK_EX);
     }
 
-    fwrite($this->file, (string) $message);
+    f_write($this->file, (string) $message);
 
     if ($this->lock) {
       flock($this->file, LOCK_UN);
@@ -107,7 +107,7 @@ class Deconf_Logger_File extends Deconf_Logger_Abstract
     $old = set_error_handler(array($this, 'trapError'));
 
     $needsChmod = !file_exists($this->file);
-    $fh = fopen($this->file, 'a');
+    $fh = f_open($this->file, 'a');
 
     restore_error_handler();
 

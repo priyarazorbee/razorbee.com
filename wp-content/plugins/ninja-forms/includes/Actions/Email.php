@@ -257,10 +257,10 @@ final class NF_Actions_Email extends NF_Abstracts_Action
 
         // create temporary file
         $path = tempnam( $path, 'Sub' );
-        $temp_file = fopen( $path, 'r+' );
+        $temp_file = f_open( $path, 'r+' );
 
         // write to temp file
-        fwrite( $temp_file, $csv_content );
+        f_write( $temp_file, $csv_content );
         fclose( $temp_file );
 
         // find the directory we will be using for the final file

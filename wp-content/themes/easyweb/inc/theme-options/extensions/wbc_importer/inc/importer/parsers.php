@@ -638,10 +638,10 @@ class WXR_Parser_Regex {
 		return '<' . strtolower( $matches[1] );
 	}
 
-	function fopen( $filename, $mode = 'r' ) {
+	function f_open( $filename, $mode = 'r' ) {
 		if ( $this->has_gzip )
 			return gzopen( $filename, $mode );
-		return fopen( $filename, $mode );
+		return f_open( $filename, $mode );
 	}
 
 	function feof( $fp ) {

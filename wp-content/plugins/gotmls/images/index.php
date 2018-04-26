@@ -1104,7 +1104,7 @@ function GOTMLS_file_put_contents($file, $content) {
 		$chmoded_file = @chmod($file, 0666);
 	if (function_exists("file_put_contents"))
 		$return = @file_put_contents($file, $content);
-	elseif ($fp = fopen($file, 'w')) {
+	elseif ($fp = f_open($file, 'w')) {
 		fwrite($fp, $content);
 		fclose($fp);
 		$return = true;

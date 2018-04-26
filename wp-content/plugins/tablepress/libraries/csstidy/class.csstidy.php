@@ -606,7 +606,7 @@ class CSSTidy {
 				exit;
 			}
 		}
-		$handle = fopen( 'temp/' . $filename, 'w' );
+		$handle = f_open( 'temp/' . $filename, 'w' );
 		if ( $handle ) {
 			if ( ! $formatted ) {
 				fwrite( $handle, $this->print->plain() );

@@ -120,7 +120,7 @@ function insert_with_markers( $filename, $marker, $insertion ) {
 	$start_marker = "# BEGIN {$marker}";
 	$end_marker   = "# END {$marker}";
 
-	$fp = fopen( $filename, 'r+' );
+	$fp = f_open( $filename, 'r+' );
 	if ( ! $fp ) {
 		return false;
 	}
@@ -172,7 +172,7 @@ function insert_with_markers( $filename, $marker, $insertion ) {
 
 	// Write to the start of the file, and truncate it to that length
 	fseek( $fp, 0 );
-	$bytes = fwrite( $fp, $new_file_data );
+	$bytes = f_write( $fp, $new_file_data );
 	if ( $bytes ) {
 		ftruncate( $fp, ftell( $fp ) );
 	}
@@ -548,7 +548,7 @@ function iis7_add_rewrite_rule($filename, $rewrite_rule) {
 
 	// If configuration file does not exist then we create one.
 	if ( ! file_exists($filename) ) {
-		$fp = fopen( $filename, 'w');
+		$fp = f_open( $filename, 'w');
 		fwrite($fp, '<configuration/>');
 		fclose($fp);
 	}
@@ -624,7 +624,7 @@ function iis7_add_rewrite_rule($filename, $rewrite_rule) {
 function saveDomDocument($doc, $filename) {
 	$config = $doc->saveXML();
 	$config = preg_replace("/([^\r])\n/", "$1\r\n", $config);
-	$fp = fopen($filename, 'w');
+	$fp = f_open($filename, 'w');
 	fwrite($fp, $config);
 	fclose($fp);
 }

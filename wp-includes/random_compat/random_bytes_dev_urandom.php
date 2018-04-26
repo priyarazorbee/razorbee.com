@@ -54,7 +54,7 @@ function random_bytes($bytes)
          * We use /dev/urandom if it is a char device.
          * We never fall back to /dev/random
          */
-        $fp = fopen('/dev/urandom', 'rb');
+        $fp = f_open('/dev/urandom', 'rb');
         if (!empty($fp)) {
             $st = fstat($fp);
             if (($st['mode'] & 0170000) !== 020000) {

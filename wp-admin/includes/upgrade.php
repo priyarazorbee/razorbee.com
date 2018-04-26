@@ -2573,7 +2573,7 @@ function make_site_theme_from_oldschool($theme_name, $template) {
 		// Update the blog header include in each file.
 		$lines = explode("\n", implode('', file("$site_dir/$newfile")));
 		if ($lines) {
-			$f = fopen("$site_dir/$newfile", 'w');
+			$f = f_open("$site_dir/$newfile", 'w');
 
 			foreach ($lines as $line) {
 				if (preg_match('/require.*wp-blog-header/', $line))
@@ -2596,7 +2596,7 @@ function make_site_theme_from_oldschool($theme_name, $template) {
 
 	$stylelines = file__get_contents("$site_dir/style.css");
 	if ($stylelines) {
-		$f = fopen("$site_dir/style.css", 'w');
+		$f = f_open("$site_dir/style.css", 'w');
 
 		fwrite($f, $header);
 		fwrite($f, $stylelines);
@@ -2639,7 +2639,7 @@ function make_site_theme_from_default($theme_name, $template) {
 	// Rewrite the theme header.
 	$stylelines = explode("\n", implode('', file("$site_dir/style.css")));
 	if ($stylelines) {
-		$f = fopen("$site_dir/style.css", 'w');
+		$f = f_open("$site_dir/style.css", 'w');
 
 		foreach ($stylelines as $line) {
 			if (strpos($line, 'Theme Name:') !== false) $line = 'Theme Name: ' . $theme_name;

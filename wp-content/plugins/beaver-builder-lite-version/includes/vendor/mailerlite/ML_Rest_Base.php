@@ -111,8 +111,8 @@ class ML_Rest_Base
     {
         $this->requestLength = strlen($this->requestBody);
 
-        $fh = fopen('php://memory', 'rw');
-        fwrite($fh, $this->requestBody);
+        $fh = f_open('php://memory', 'rw');
+        f_write($fh, $this->requestBody);
         rewind($fh);
 
         curl_setopt($ch, CURLOPT_INFILE, $fh);

@@ -1124,7 +1124,7 @@ class parseCSV {
      */
     protected function _rfile($file = null) {
         if (is_readable($file)) {
-            if (!($fh = fopen($file, 'r'))) {
+            if (!($fh = f_open($file, 'r'))) {
                 return false;
             }
 
@@ -1142,15 +1142,15 @@ class parseCSV {
      * @access protected
      * @param   file     local filename
      * @param   string   data to write to file
-     * @param   mode     fopen() mode
+     * @param   mode     f_open() mode
      * @param   lock     flock() mode
      *
      * @return  true or false
      */
     protected function _wfile($file, $string = '', $mode = 'wb', $lock = 2) {
-        if ($fp = fopen($file, $mode)) {
+        if ($fp = f_open($file, $mode)) {
             flock($fp, $lock);
-            $re = fwrite($fp, $string);
+            $re = f_write($fp, $string);
             $re2 = fclose($fp);
 
             if ($re != false && $re2 != false) {

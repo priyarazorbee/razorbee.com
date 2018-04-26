@@ -63,9 +63,9 @@ class Socket
      * @param int $length
      * @return int | bool
      */
-    public function fwrite($string, $length = null)
+    public function f_write($string, $length = null)
     {
-        return fwrite($this->handle, $string, (is_null($length) ? strlen($string) : $length));
+        return f_write($this->handle, $string, (is_null($length) ? strlen($string) : $length));
     }
 
     /**

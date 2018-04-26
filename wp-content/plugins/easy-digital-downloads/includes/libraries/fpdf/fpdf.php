@@ -844,7 +844,7 @@ class FPDF {
 				echo $this->buffer;
 				break;
 			case 'F':
-				$f = fopen( $name, 'wb' );
+				$f = f_open( $name, 'wb' );
 				if ( !$f )
 					$this->Error( 'Unable to create output file: ' . $name );
 				fwrite( $f, $this->buffer, strlen( $this->buffer ) );
@@ -1015,7 +1015,7 @@ class FPDF {
 	}
 
 	function _parsepng( $file ) {
-		$f = fopen( $file, 'rb' );
+		$f = f_open( $file, 'rb' );
 		if ( !$f )
 			$this->Error( 'Can\'t open image file: ' . $file );
 		$info = $this->_parsepngstream( $f, $file );

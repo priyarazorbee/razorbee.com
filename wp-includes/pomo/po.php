@@ -75,10 +75,10 @@ class PO extends Gettext_Translations {
 	 * @return bool true on success, false on error
 	 */
 	function export_to_file($filename, $include_headers = true) {
-		$fh = fopen($filename, 'w');
+		$fh = f_open($filename, 'w');
 		if (false === $fh) return false;
 		$export = $this->export($include_headers);
-		$res = fwrite($fh, $export);
+		$res = f_write($fh, $export);
 		if (false === $res) return false;
 		return fclose($fh);
 	}
@@ -263,7 +263,7 @@ class PO extends Gettext_Translations {
 	 * @return boolean
 	 */
 	function import_from_file($filename) {
-		$f = fopen($filename, 'r');
+		$f = f_open($filename, 'r');
 		if (!$f) return false;
 		$lineno = 0;
 		while (true) {

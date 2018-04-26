@@ -223,9 +223,9 @@ class WP_Http_Streams {
 			if ( ! WP_DEBUG )
 				$stream_handle = @fopen( $r['filename'], 'w+' );
 			else
-				$stream_handle = fopen( $r['filename'], 'w+' );
+				$stream_handle = f_open( $r['filename'], 'w+' );
 			if ( ! $stream_handle )
-				return new WP_Error( 'http_request_failed', sprintf( __( 'Could not open handle for fopen() to %s' ), $r['filename'] ) );
+				return new WP_Error( 'http_request_failed', sprintf( __( 'Could not open handle for f_open() to %s' ), $r['filename'] ) );
 
 			$bytes_written = 0;
 			while ( ! feof($handle) && $keep_reading ) {
@@ -248,7 +248,7 @@ class WP_Http_Streams {
 					$block = substr( $block, 0, $this_block_size );
 				}
 
-				$bytes_written_to_file = fwrite( $stream_handle, $block );
+				$bytes_written_to_file = f_write( $stream_handle, $block );
 
 				if ( $bytes_written_to_file != $this_block_size ) {
 					fclose( $handle );

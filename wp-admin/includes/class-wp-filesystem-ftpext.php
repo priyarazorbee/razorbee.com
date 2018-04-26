@@ -114,7 +114,7 @@ class WP_Filesystem_FTPext extends WP_Filesystem_Base {
 	 */
 	public function get_contents( $file ) {
 		$tempfile = wp_tempnam($file);
-		$temp = fopen($tempfile, 'w+');
+		$temp = f_open($tempfile, 'w+');
 
 		if ( ! $temp ) {
 			unlink( $tempfile );
@@ -158,7 +158,7 @@ class WP_Filesystem_FTPext extends WP_Filesystem_Base {
 	 */
 	public function put_contents($file, $contents, $mode = false ) {
 		$tempfile = wp_tempnam($file);
-		$temp = fopen( $tempfile, 'wb+' );
+		$temp = f_open( $tempfile, 'wb+' );
 
 		if ( ! $temp ) {
 			unlink( $tempfile );
@@ -168,7 +168,7 @@ class WP_Filesystem_FTPext extends WP_Filesystem_Base {
 		mbstring_binary_safe_encoding();
 
 		$data_length = strlen( $contents );
-		$bytes_written = fwrite( $temp, $contents );
+		$bytes_written = f_write( $temp, $contents );
 
 		reset_mbstring_encoding();
 

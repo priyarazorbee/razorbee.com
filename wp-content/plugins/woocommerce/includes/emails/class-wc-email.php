@@ -583,7 +583,7 @@ class WC_Email extends WC_Settings_API {
 			$code   = wp_unslash( $template_code );
 
 			if ( is_writeable( $file ) ) {
-				$f = fopen( $file, 'w+' );
+				$f = f_open( $file, 'w+' );
 
 				if ( false !== $f ) {
 					fwrite( $f, $code );

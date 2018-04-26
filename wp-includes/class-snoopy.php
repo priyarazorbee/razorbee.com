@@ -1238,7 +1238,7 @@ class Snoopy
 					while (list(, $file_name) = each($file_names)) {
 						if (!is_readable($file_name)) continue;
 
-						$fp = fopen($file_name, "r");
+						$fp = f_open($file_name, "r");
 						$file_content = fread($fp, filesize($file_name));
 						fclose($fp);
 						$base_name = basename($file_name);

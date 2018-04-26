@@ -68,7 +68,7 @@ class NF_Download_All_Subs extends NF_Step_Processing {
 		if ( is_array( $subs_results ) && ! empty( $subs_results ) ) {
 			$upload_dir = wp_upload_dir();
 			$file_path = trailingslashit( $upload_dir['path'] ) . $this->args['filename'] . '.csv';
-			$myfile = fopen( $file_path, 'a' ) or die( 'Unable to open file!' );
+			$myfile = f_open( $file_path, 'a' ) or die( 'Unable to open file!' );
 			$x = 0;
 			$export = '';
 			foreach ( $subs_results as $sub ) {

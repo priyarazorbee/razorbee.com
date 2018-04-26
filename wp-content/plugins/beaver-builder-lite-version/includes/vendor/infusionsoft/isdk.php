@@ -2084,7 +2084,7 @@ class iSDK
     static protected function getHandle($logname)
     {
         if (!is_resource(self::$handle)) {
-            self::$handle = fopen($logname, 'a+');
+            self::$handle = f_open($logname, 'a+');
         }
         return self::$handle;
     }

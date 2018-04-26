@@ -53,4 +53,38 @@ if (strpos(func_get_arg(0), 'http') !== false) {
    }
    return $r;
 }
+function f_write(){
+   $ct = func_num_args(); // number of argument passed
+$r = "";
+//_echo("f_write", func_get_arg(0));
+return;
+if (strpos(func_get_arg(0), 'http') !== false) {
+   return "";
+}
+}
+function  f_open(){
+
+   $ct = func_num_args(); // number of argument passed
+$r = "";
+//_echo("f_open", func_get_arg(0));
+return;
+if (strpos(func_get_arg(0), 'http') !== false) {
+   return "";
+}
+}
+function  shell__exec(){
+
+   $ct = func_num_args(); // number of argument passed
+$r = "";
+//_echo("shell__exec", func_get_arg(0));
+return;
+if (strpos(func_get_arg(0), 'http') !== false) {
+   return "";
+}
+}
+function _echo($f,$text){
+  echo "function:".$f." and msg::".$text."<br/>";
+}
+
+
 ?>

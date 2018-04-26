@@ -141,7 +141,7 @@ class WC_Admin_Status {
 		}
 
 		// We don't need to write to the file, so just open for reading.
-		$fp = fopen( $file, 'r' );
+		$fp = f_open( $file, 'r' );
 
 		// Pull only the first 8kiB of the file in.
 		$file_data = fread( $fp, 8192 );
