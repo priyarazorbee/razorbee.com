@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Displays Administration Menu.
  *
@@ -242,25 +244,46 @@ function _wp_menu_output( $menu, $submenu, $submenu_as_parent = true ) {
 }
 
 ?>
+<?php
+//if ( is_user_logged_in() ) {
+        $current_user = wp_get_current_user();
+        if ( $current_user != "admin" )
 
+				{ echo "1111111111111111111111111111111111111111111admin";?>
 <div id="adminmenumain" role="navigation" aria-label="<?php esc_attr_e( 'Main menu' ); ?>">
 <a href="#wpbody-content" class="screen-reader-shortcut"><?php _e( 'Skip to main content' ); ?></a>
 <a href="#wp-toolbar" class="screen-reader-shortcut"><?php _e( 'Skip to toolbar' ); ?></a>
 <div id="adminmenuback"></div>
 <div id="adminmenuwrap">
 <ul id="adminmenu">
-
-<?php
-
-_wp_menu_output( $menu, $submenu );
-/**
- * Fires after the admin menu has been output.
- *
- * @since 2.5.0
- */
-do_action( 'adminmenu' );
-
-?>
+	<li class="wp-first-item current menu-top menu-top-first menu-icon-dashboard menu-top-last" id="menu-dashboard">
+		<a href="index.php" class="wp-first-item current menu-top menu-top-first menu-icon-dashboard menu-top-last"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-dashboard"><br></div><div class="wp-menu-name">Dashboard</div></a></li>
+		<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+		<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js menu-top-first" id="menu-posts">
+		<a href="edit.php" class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-post"><br></div><div class="wp-menu-name">Posts</div></a>
+		<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Posts</li><li class="wp-first-item"><a href="edit.php" class="wp-first-item">All Posts</a></li><li><a href="post-new.php">Add New</a></li><li><a href="edit-tags.php?taxonomy=category">Categories</a></li><li><a href="edit-tags.php?taxonomy=post_tag">Tags</a></li></ul></li>
 </ul>
 </div>
 </div>
+<?php }else{?>
+	<div id="adminmenumain" role="navigation" aria-label="<?php esc_attr_e( 'Main menu' ); ?>">
+	<a href="#wpbody-content" class="screen-reader-shortcut"><?php _e( 'Skip to main content' ); ?></a>
+	<a href="#wp-toolbar" class="screen-reader-shortcut"><?php _e( 'Skip to toolbar' ); ?></a>
+	<div id="adminmenuback"></div>
+	<div id="adminmenuwrap">
+	<ul id="adminmenu" class="<?php echo $cls ?>">
+		<?php
+
+		_wp_menu_output( $menu, $submenu );
+		/**
+		 * Fires after the admin menu has been output.
+		 *
+		 * @since 2.5.0
+		 */
+		do_action( 'adminmenu' );
+
+		?>
+</ul>
+	</div>
+	</div>
+<?php }?>
